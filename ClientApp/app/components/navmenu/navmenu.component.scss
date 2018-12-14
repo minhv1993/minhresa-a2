@@ -1,0 +1,192 @@
+@import '../../shared/styles/variables.scss';
+@import '../../shared/styles/mixins.scss';
+
+.nav-bar {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    @include flexbox();
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.nav-menu {
+    list-style-type: none;
+    @include flexbox();
+}
+
+.nav-item {
+    @include transition(.25s all ease-in-out);
+    font-family: $crushed-font;
+}
+
+.nav-icon {
+    margin-right: 1rem;
+}
+// mobile
+@media (max-width: $max-width-xs){
+    .nav-bar {
+        left: -100%;
+        background: linear-gradient( to right, $blue-dusty-dark, rgba(255,255,255,0) );
+        height: 100%;
+        @include flex-dir(column);
+        @include transition(.5s all ease-in-out);
+
+        &.active{
+            left: 0;
+        }
+    }
+
+    .menu-toggle {
+        position: fixed;
+        top: .5rem;
+        left: .0;
+        font-size: 1.5rem;
+        z-index: 1;
+        color: white;
+        @include transition(.25s all ease-in-out);
+
+        i {
+            transform: translate(-100%, 0);
+            width: 2.5rem;
+            height: 2.5rem;
+            background: $gray;
+            border-top-right-radius: 100%;
+            border-bottom-right-radius: 100%;
+            padding: .5rem;
+            position: absolute;
+            top: 0;
+            @include transition(transform .25s ease-in-out);
+        }
+
+        .show {
+            transform: translate(0, 0);
+        }
+
+        &:hover {
+            color: $white-antique;
+        }
+    }
+
+    .nav-menu {
+        padding: 4.5rem 1.5rem 1.5rem;
+        @include flex-dir(column);
+    }
+
+    .nav-item {
+        padding: 1.25rem 0;
+        width: 17rem;
+        @include order(1);
+        text-shadow: 0 0 5px $blue-dusty-dark;
+        display: block;
+        color: $white-antique;
+
+        &:hover {
+            padding-left: 1rem;
+            color: white;
+        }
+    }
+}
+// tablet & desktop
+@media (min-width: $min-width-sm){
+    .nav-bar {
+        padding: 1rem 1rem 2rem;
+        height: auto;
+        background: linear-gradient( to bottom, $blue-dusty-dark, rgba(255,255,255,0) );
+        @include align-items(center);
+        left: 0;
+        
+    }
+    .nav-menu {
+        position: static;
+        width: 100%;
+        max-width: 1400px;
+        padding: 0;
+        @include flex-dir(row);
+        @include justify-content(space-around);
+        @include align-items(center);
+    }
+
+    .nav-item {
+        border-top: 2px solid $white-antique;
+        border-bottom: 2px solid $white-antique;
+        width: 7.6rem;
+        height: 4rem;
+        @include align-items(flex-start);
+        @include flexbox();
+        @include flex-dir(column);
+        @include justify-content(flex-end);
+
+        span:last-child {
+            margin-bottom: .25rem;
+        }
+
+        &:hover {
+            color: white;
+            font-size: 1.2rem;
+        }
+    }
+
+    .nav-logo {
+        border: 2px solid $white-antique;
+        font-size: 2rem;
+        @include align-items(center);
+        @include justify-content(center);
+        margin: 0 .5rem;
+        font-family: $grand-hotel-font;
+        width: 9rem;
+        height: 6rem;
+        @include flex(0 0 8rem);
+
+        i {
+            margin: 0 .5rem;
+        }
+
+        &:hover{
+            font-size: 3rem;
+            background: rgba(255,255,255,.25);
+        }
+    }
+
+    .shrink-0 {
+        flex-shrink: 0;
+    }
+    
+    &.scrolled {
+        .nav-logo {
+            height: 3.56rem;
+        }
+    }
+}
+
+@media (min-width: $min-width-md){
+    .nav-bar{
+        .nav-item {
+            font-size: 1.2rem;
+            height: 4rem;
+    
+            &:hover {
+                font-size: 1.4rem;
+            }
+        }
+    
+        .nav-logo {
+            font-size: 2.5rem;
+            height: 6rem;
+            @include flex-basis(12rem);
+    
+            &:hover{
+                font-size: 3rem;
+            }
+        }
+        
+        &.scrolled {
+            .nav-logo {
+                height: 4.06rem;
+            }
+        }
+    }
+}
