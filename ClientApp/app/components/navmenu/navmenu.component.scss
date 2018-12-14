@@ -33,7 +33,7 @@
         background: linear-gradient( to right, $blue-dusty-dark, rgba(255,255,255,0) );
         height: 100%;
         @include flex-dir(column);
-        @include transition(.5s all ease-in-out);
+        @include transition(.25s all ease-in-out);
 
         &.active{
             left: 0;
@@ -72,21 +72,22 @@
     }
 
     .nav-menu {
-        padding: 4.5rem 1.5rem 1.5rem;
+        padding: 4rem 5rem 4rem 1rem;
         @include flex-dir(column);
+        height: 100%;
+        @include justify-content(space-between);
+        font-size: 1.25rem;
     }
 
     .nav-item {
-        padding: 1.25rem 0;
-        width: 17rem;
         @include order(1);
         text-shadow: 0 0 5px $blue-dusty-dark;
         display: block;
-        color: $white-antique;
+        color: white;
 
         &:hover {
+            color: $white-antique;
             padding-left: 1rem;
-            color: white;
         }
     }
 }
