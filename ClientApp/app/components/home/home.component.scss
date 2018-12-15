@@ -1,0 +1,371 @@
+// out: ../css/home.css, compress: true, sourceMap: false
+@import "../../shared/styles/variables.scss";
+@import "../../shared/styles/mixins.scss";
+
+// HERO
+#hero-home {
+    background-image: url(../img/hero-1.jpg);
+}
+
+.announce,.save-the-date {
+    text-shadow: 0 0 4px $blue-dusty-dark;
+}
+
+.announce-name {
+    @include flexbox();
+    @include justify-content(center);
+    @include flex-dir(column);
+    @include align-items(center);
+    font-size: 6rem;
+    font-family: $grand-hotel-font;
+
+    span {
+        line-height: 4rem;
+    }
+
+    .name {
+        width: 20rem;
+
+        &.txt-right {
+            text-align: right;
+        }
+    }
+
+    .and {    
+        line-height: 3rem;
+        margin-bottom: -1.5rem;
+    }
+
+}
+
+.announce-sub-text {
+    line-height: 1.5;
+    font-size: 1.5rem;
+}
+
+.save-the-date {
+    color: $mustard-yellow;
+    line-height: 1.5;
+    font-size: 1.4rem;
+
+    div{
+        display: inline;
+    }
+}
+
+.lnk-story {
+    font-family: $grand-hotel-font;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    font-size: 3.5rem;
+    text-decoration: underline;
+
+    i {
+        font-size: .5em;
+        position: relative;
+        top: 1em;
+        right: -.1em;
+    }
+}
+
+.btn-container {
+    font-size: 1.25rem;
+}
+@media (min-width: 600px){
+    .btn-container {
+        font-size: 1.5rem;
+    }
+    .lnk-story {
+        font-size: 4rem;
+    }
+}
+@media (min-width: 768px){
+    #hero-home {
+        font-size: 3rem;
+    }
+    .announce {
+        margin-top: 4rem;
+    }
+    .announce-name {
+        font-size: 7rem;
+
+        .name {
+            width: 23rem;
+        }
+
+        .and {
+            line-height: 4rem;
+            margin-bottom: -1.6rem;
+        }
+    }
+    .announce-sub-text {
+        font-size: 2rem;
+        line-height: 2;
+    }
+    .save-the-date {
+        font-size: 1.6rem;
+        div {
+            display: inline;
+        }
+    }
+
+    .lnk-story {
+        font-size: 4.5rem;
+
+        i {
+            font-size: 0.6em;
+            top: 42px;
+        }
+    }
+}
+
+// TIMELINE
+$tl-color: $blue-dusty-dark;
+.tl-wrapper {
+    min-height: 100vh;
+    color: $tl-color;
+    position: relative;
+    font-size: 12px;
+    max-width: 1024px;
+    margin: auto;
+}
+// TIMELINE SECTION
+.tl-section-container {
+    color: #3f3f3f;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+    background: white;
+    min-height: 100vh;
+}
+.tl-section-content {
+    padding: 2rem 5rem 2rem 2rem;
+    width: 100%;
+    font-size: 1.5rem;
+
+    h1, h2, h3 {
+        font-family: $grand-hotel-font;
+        margin: 0;
+    }
+    p {
+        font-family: $overlock-font;
+        div {
+            font-family: inherit;
+            font-size: inherit;
+        }
+    }
+}
+
+.stairs, .seed, .talk, .journey, .proposal, .altar {
+    h2 {
+        text-align: center;
+    }
+    p{
+        font-size: 1.2rem;
+    }
+}
+
+.talk {
+    p{
+        font-size: 1.1rem;
+    }
+}
+
+.journey {
+    p {
+        font-size: 1rem;
+    }
+}
+
+// TIMELINE NAV
+.tl-nav-wrapper {
+    position: fixed;
+    bottom: 0;
+    right: 1.5rem;
+    max-height: 100%;
+    @include flexbox();
+    @include flex-flow(column nowrap);
+    @include justify-content(flex-end);
+    margin: 0 10px;
+    border: 1px solid $tl-color;
+    box-shadow: 0 0 4px $tl-color;
+}
+
+$tl-nav-padding: 1em;
+.tl-nav {
+    @include flexbox();
+    @include flex-dir(column);
+    @include justify-content(space-between);
+    padding: $tl-nav-padding 0;
+    list-style-type: none;
+    position: absolute;
+    margin: 0;
+    right: -2.2em;
+    height: calc(100% - $tl-nav-padding * 2);
+    @include transition(all .5s ease-in-out);
+}
+
+a.tl-nav-link {
+    font-size: 1.25em;
+    display: block;
+    padding: 1em 0;
+    color: $tl-color;
+    @include flexbox();
+    @include flex-dir(row-reverse);
+    @include align-items(center);
+    @include transition(all 1s ease-in-out);
+    
+    span {
+        @include transition(all 0.3s ease-in-out);
+    }
+    
+    &.active {
+        flex-grow: 1;
+    }
+
+    &:hover, &.active {
+        span{
+            font-weight: bold;
+        }
+        .tl-nav-divider {
+            width: 1em;
+        }
+
+        .tl-nav-icon {
+            color: white;
+            background: $blue-dusty-dark;
+        }
+    }
+
+    &:focus {
+        background-color: transparent;
+    }
+}
+
+$circle-button-size: 3rem;
+a.btn-top {
+    font-size: 2rem;
+    padding: 0;
+    width: $circle-button-size;
+    height: $circle-button-size;
+    box-shadow: 0 0 4px $tl-color;
+    overflow: hidden;
+    @include flexbox();
+    @include justify-content(center);
+    @include align-items(center);
+    @include align-self(flex-end);
+}
+
+.tl-nav-counter {
+    width: .4em;
+    text-align: left;
+    display: none;
+}
+
+.tl-nav-divider {
+    width: .5em;
+    margin: 0 .5em;
+    border: 1px solid $tl-color;
+    box-shadow: 0 0 4px $tl-color;
+    display: none;
+}
+
+.tl-nav-title {
+    margin: 0; 
+    width: 4.5em;
+    text-align: right;
+    display: none;
+}
+
+.tl-nav-icon {
+    font-size: 2rem;
+    background: white;
+    border: 2px solid $blue-dusty-dark;
+    border-radius: 3em;
+    width: $circle-button-size;
+    height: $circle-button-size;
+    @include flexbox();
+    @include justify-content(center);
+    @include align-items(center);
+}
+
+.tl-nav-body {
+    @include transition(all 0.3s ease-out);
+}
+
+@media (min-width: 600px){
+    .tl-wrapper {
+        font-size: 1rem;
+    }
+
+    .tl-nav-wrapper {
+        right: 2rem;
+    }
+
+    .tl-nav {
+        right: -1.6em;
+    }
+
+    .tl-nav-counter {
+        width: 1em;
+    }
+
+    .tl-nav-title {
+        width: 5em;
+    }
+
+    .tl-section-content {
+        h2 {
+            font-size: 4rem;
+        }
+        p{
+            font-size: 1.5rem;
+        }
+    }
+    .intro {
+        p {
+            font-size: 2rem;
+        }
+        div {
+            font-size: 3rem;
+        }
+    }
+    .talk, .journey {
+        p {
+            font-size: 1.4rem;
+        }
+    }
+    .altar {
+        .btn-container {
+            font-size: 1.75rem;
+        }
+    }
+}
+
+@media (min-width: 768px){
+    .tl-nav {  
+        padding-top: 7em;
+        height: calc(100% - 8em);
+    }
+    .tl-nav-title {
+        width: 6em;
+    }
+    .tl-section-content {
+        padding: 2rem 8rem 2rem 5rem;
+        p{
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media (min-width: 1024px){
+    .tl-nav {
+        padding-top: 8em;
+        height: calc(100% - 9em);
+    }
+    .tl-nav-title {
+        width: 7em;
+    }
+}

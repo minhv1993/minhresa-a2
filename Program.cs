@@ -20,6 +20,7 @@ namespace minhresa_a2
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseUrls("http://localhost:2019")
                 .Build();
     }
 }

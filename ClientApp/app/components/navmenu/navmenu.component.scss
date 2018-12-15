@@ -23,9 +23,6 @@
     font-family: $crushed-font;
 }
 
-.nav-icon {
-    margin-right: 1rem;
-}
 // mobile
 @media (max-width: $max-width-xs){
     .nav-bar {
@@ -90,7 +87,12 @@
             padding-left: 1rem;
         }
     }
+
+    .nav-icon {
+        margin-right: 1rem;
+    }
 }
+
 // tablet & desktop
 @media (min-width: $min-width-sm){
     .nav-bar {
@@ -104,19 +106,24 @@
     .nav-menu {
         position: static;
         width: 100%;
-        max-width: 1400px;
         padding: 0;
-        @include flex-dir(row);
-        @include justify-content(space-around);
+        @include justify-content(space-between);
         @include align-items(center);
     }
 
+    .nav-item,
+    .nav-logo {
+        color: white;
+
+        &:hover {
+            color: $white-antique;
+            border-color: $white-antique;
+        }
+    }
+
     .nav-item {
-        border-top: 2px solid $white-antique;
-        border-bottom: 2px solid $white-antique;
-        width: 7.6rem;
-        height: 4rem;
-        @include align-items(flex-start);
+        border-bottom: 2px solid white;
+        height: 3rem;
         @include flexbox();
         @include flex-dir(column);
         @include justify-content(flex-end);
@@ -125,14 +132,21 @@
             margin-bottom: .25rem;
         }
 
+        &.left {
+            @include align-items(flex-start);
+        }
+
+        &.right {
+            @include align-items(flex-end);
+        }
+
         &:hover {
-            color: white;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
     }
 
     .nav-logo {
-        border: 2px solid $white-antique;
+        border: 2px solid white;
         font-size: 2rem;
         @include align-items(center);
         @include justify-content(center);
@@ -159,35 +173,6 @@
     &.scrolled {
         .nav-logo {
             height: 3.56rem;
-        }
-    }
-}
-
-@media (min-width: $min-width-md){
-    .nav-bar{
-        .nav-item {
-            font-size: 1.2rem;
-            height: 4rem;
-    
-            &:hover {
-                font-size: 1.4rem;
-            }
-        }
-    
-        .nav-logo {
-            font-size: 2.5rem;
-            height: 6rem;
-            @include flex-basis(12rem);
-    
-            &:hover{
-                font-size: 3rem;
-            }
-        }
-        
-        &.scrolled {
-            .nav-logo {
-                height: 4.06rem;
-            }
         }
     }
 }
