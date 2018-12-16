@@ -1,3 +1,4 @@
+import { WeddingPartyComponent } from './components/wedding-party/wedding-party.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -7,16 +8,23 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
+import { ScheduleComponent } from "./components/schedule/schedule.component";
+import { RegistryComponent } from './components/registry/registry.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { TravelComponent } from './components/travel/travel.component';
+import { RsvpComponent } from './components/rsvp/rsvp.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
-        CounterComponent,
-        FetchDataComponent,
-        HomeComponent
+        HomeComponent,
+        ScheduleComponent,
+        RegistryComponent,
+        GalleryComponent,
+        TravelComponent,
+        RsvpComponent,
+        WeddingPartyComponent
     ],
     imports: [
         CommonModule,
@@ -25,11 +33,14 @@ import { CounterComponent } from './components/counter/counter.component';
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'schedule', component: ScheduleComponent },
+            { path: 'wedding-party', component: WeddingPartyComponent},
+            { path: 'registry', component: RegistryComponent},
+            { path: 'gallery', component: GalleryComponent},
+            { path: 'travel', component: TravelComponent},
+            { path: 'rsvp', component: RsvpComponent},
             { path: '**', redirectTo: 'home' }
         ])
     ]
 })
-export class AppModuleShared {
-}
+export class AppModuleShared {}

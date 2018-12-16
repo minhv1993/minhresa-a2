@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./navmenu.component.scss']
 })
 export class NavMenuComponent {
-    public menuShow:boolean = false;
+    public menuShow: boolean = false;
 
     constructor(){};
 

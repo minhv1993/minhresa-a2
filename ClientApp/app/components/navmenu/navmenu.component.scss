@@ -8,8 +8,16 @@
     @include flexbox();
 
     a {
-        text-decoration: none;
+        color: white;
         cursor: pointer;
+        text-decoration: none;
+        @include transition(.25s all ease-in-out);
+
+        &:hover,
+        &.active {
+            color: $white-antique;
+            border-color: $white-antique;
+        }
     }
 }
 
@@ -18,8 +26,11 @@
     @include flexbox();
 }
 
-.nav-item {
-    @include transition(.25s all ease-in-out);
+.nav-menu-group {
+    @include flexbox();
+}
+
+.nav-link {
     font-family: $crushed-font;
 }
 
@@ -27,8 +38,8 @@
 @media (max-width: $max-width-xs){
     .nav-bar {
         left: -100%;
-        background: linear-gradient( to right, $blue-dusty-dark, rgba(255,255,255,0) );
         height: 100%;
+        background: linear-gradient( to right, $blue-dusty-dark, rgba(255,255,255,0) );
         @include flex-dir(column);
         @include transition(.25s all ease-in-out);
 
@@ -38,19 +49,19 @@
     }
 
     .menu-toggle {
-        position: fixed;
-        top: .5rem;
-        left: .0;
-        font-size: 1.5rem;
+        left: 0;
         z-index: 1;
+        top: 0.5rem;
         color: white;
+        position: fixed;
+        font-size: 1.5rem;
         @include transition(.25s all ease-in-out);
 
         i {
             transform: translate(-100%, 0);
             width: 2.5rem;
             height: 2.5rem;
-            background: $gray;
+            background: $eggplant;
             border-top-right-radius: 100%;
             border-bottom-right-radius: 100%;
             padding: .5rem;
@@ -70,106 +81,135 @@
 
     .nav-menu {
         padding: 4rem 5rem 4rem 1rem;
-        @include flex-dir(column);
         height: 100%;
-        @include justify-content(space-between);
         font-size: 1.25rem;
+        @include flex-dir(column);
+    }
+
+    .nav-menu-group {
+        @include flex-dir(column);
     }
 
     .nav-item {
-        @include order(1);
-        text-shadow: 0 0 5px $blue-dusty-dark;
+        text-shadow: 0 0 0.3125rem $blue-dusty-dark;
         display: block;
-        color: white;
+        margin-bottom: 1.5rem;
+    }
 
-        &:hover {
-            color: $white-antique;
-            padding-left: 1rem;
+    .nav-link {
+        &:hover,
+        &.active {
+            margin-left: 1rem;
         }
     }
 
     .nav-icon {
-        margin-right: 1rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-right: 0.5rem;
+        display: inline-block;
     }
 }
 
 // tablet & desktop
 @media (min-width: $min-width-sm){
     .nav-bar {
-        padding: 1rem 1rem 2rem;
+        left: 0;
         height: auto;
+        padding: 1rem 1rem 2rem;
         background: linear-gradient( to bottom, $blue-dusty-dark, rgba(255,255,255,0) );
         @include align-items(center);
-        left: 0;
+        @include justify-content(center);
         
     }
+
     .nav-menu {
-        position: static;
-        width: 100%;
         padding: 0;
+        width: 100%;
+        position: static;
+        max-width: 1024px;
         @include justify-content(space-between);
         @include align-items(center);
     }
 
-    .nav-item,
-    .nav-logo {
-        color: white;
-
-        &:hover {
-            color: $white-antique;
-            border-color: $white-antique;
-        }
-    }
-
-    .nav-item {
-        border-bottom: 2px solid white;
-        height: 3rem;
-        @include flexbox();
-        @include flex-dir(column);
-        @include justify-content(flex-end);
-
-        span:last-child {
-            margin-bottom: .25rem;
-        }
+    .nav-menu-group {
+        min-width: 17rem;
+        width: calc((100% - 12rem) / 2);
+        border-bottom: 1px solid white;
+        @include flex-dir(row);
 
         &.left {
-            @include align-items(flex-start);
+            @include justify-content(flex-start);
+
+            .nav-item {
+                margin-right: 2rem;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+
+            .nav-link {
+                @include align-items(flex-start);
+            }
         }
 
         &.right {
-            @include align-items(flex-end);
-        }
+            @include justify-content(flex-end);
 
-        &:hover {
-            font-size: 1.1rem;
+            .nav-item {
+                margin-left: 2rem;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+
+            .nav-link {
+                @include align-items(flex-end);
+            }
+        }
+    }
+
+    .nav-link {
+        height: 3rem;
+        font-size: 1.2rem;
+        @include flexbox();
+        @include flex-dir(column);
+        @include justify-content(flex-end);
+        
+        &:hover,
+        &.active {
+            font-size: 1.4rem;
         }
     }
 
     .nav-logo {
-        border: 2px solid white;
         font-size: 2rem;
+        margin: 0 .5rem;
+        width: 9rem;
+        height: 4rem;
+        border-radius: 9px;
+        font-family: $grand-hotel-font;
+        border-top: 3px solid white;
+        border-bottom: 3px solid white;
+        @include flexbox();
         @include align-items(center);
         @include justify-content(center);
-        margin: 0 .5rem;
-        font-family: $grand-hotel-font;
-        width: 9rem;
-        height: 6rem;
-        @include flex(0 0 8rem);
 
         i {
             margin: 0 .5rem;
         }
 
         &:hover{
-            font-size: 3rem;
-            background: rgba(255,255,255,.25);
+            font-size: 2.5rem;
+            border-top-width: 2px;
+            border-bottom-width: 2px;
+            border-radius: 12px;
+            letter-spacing: 6px;
         }
     }
 
-    .shrink-0 {
-        flex-shrink: 0;
-    }
-    
     &.scrolled {
         .nav-logo {
             height: 3.56rem;
