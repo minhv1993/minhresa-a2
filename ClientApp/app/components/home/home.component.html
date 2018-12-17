@@ -1,23 +1,25 @@
 <!-- Intro Header -->
 <section id="hero-home" class="hero fullscreen">
     <div class="hero-body">
-        <div class="announce">
-            <div class="announce-name">
-                <span class="name">Minh</span>
-                <span class="and">+</span>
-                <span class="name">Theresa</span>
+        <div>
+            <div class="announce">
+                <div class="announce-name">
+                    <span class="name">Minh</span>
+                    <span class="and">+</span>
+                    <span class="name">Theresa</span>
+                </div>
+                <div class="announce-sub-text upper bold">Are Getting Married</div>
             </div>
-            <div class="announce-sub-text upper bold">Are Getting Married</div>
+            <div class="save-the-date upper bold">
+                <div>Join Us</div>
+                <div>September 28, 2019</div>
+            </div>
+            <div class="btn-container">
+                <a class="btn btn-secondary">Save The Date</a>
+                <a class="btn btn-secondary nav-item" href="#rsvp">RSVP</a>
+            </div>
         </div>
-        <div class="save-the-date upper bold">
-            <div>Join Us</div>
-            <div>September 28th, 2019</div>
-        </div>
-        <div class="btn-container">
-            <a class="btn btn-secondary">Save The Date</a>
-            <a class="btn btn-secondary nav-item" href="#rsvp">RSVP</a>
-        </div>
-        <a href="#story" class="lnk lnk-secondary lnk-story page-scroll">
+        <a class="lnk lnk-secondary lnk-story page-scroll" routerLink="/" fragment="the-story">
             The Story<i class="fa fa-level-down-alt"></i>
         </a>
     </div>
@@ -27,49 +29,31 @@
 <section id="story" class="tl-wrapper" >
     <nav class="tl-nav-wrapper" id="timeline-nav">
         <div class="tl-nav">
-            <a class="btn btn-secondary btn-top page-scroll" href="#page-top">
+            <a class="btn btn-secondary btn-top page-scroll" (click)="toTop()">
                 <i class="fa fa-angle-double-up"></i>
             </a>
-            <a class="tl-nav-link" href="#story1">
+            <a class="tl-nav-link" routerLink="/" fragment="the-stair">
                 <span class="tl-nav-icon"><i class="ico-stair"></i></span>
-                <span class="tl-nav-counter">1</span>
-                <span class="tl-nav-divider"></span>
-                <span class="tl-nav-title upper">The Stairs</span>
             </a>
-            <a class="tl-nav-link" href="#story2">
+            <a class="tl-nav-link" routerLink="/" fragment="the-seed">
                 <span class="tl-nav-icon"><i class="ico-seed"></i></span>
-                <span class="tl-nav-counter">2</span>
-                <span class="tl-nav-divider"></span>
-                <span class="tl-nav-title upper">The SEED</span>
             </a>
-            <a class="tl-nav-link" href="#story3">
+            <a class="tl-nav-link" routerLink="/" fragment="the-talk">
                 <span class="tl-nav-icon"><i class="ico-talk"></i></span>
-                <span class="tl-nav-counter">3</span>
-                <span class="tl-nav-divider"></span>
-                <span class="tl-nav-title upper">The Talk</span>
             </a>
-            <a class="tl-nav-link" href="#story4">
+            <a class="tl-nav-link" routerLink="/" fragment="the-journey">
                 <span class="tl-nav-icon"><i class="ico-journey"></i></span>
-                <span class="tl-nav-counter">4</span>
-                <span class="tl-nav-divider"></span>
-                <span class="tl-nav-title upper">The Journey</span>
             </a>
-            <a class="tl-nav-link" href="#story5">
+            <a class="tl-nav-link" routerLink="/" fragment="the-proposal">
                 <span class="tl-nav-icon"><i class="ico-proposal"></i></span>
-                <span class="tl-nav-counter">5</span>
-                <span class="tl-nav-divider"></span>
-                <span class="tl-nav-title upper">The Proposal</span>
             </a>
-            <a class="tl-nav-link" href="#story6">
+            <a class="tl-nav-link" routerLink="/" fragment="the-altar">
                 <span class="tl-nav-icon"><i class="ico-altar"></i></span>
-                <span class="tl-nav-counter">6</span>
-                <span class="tl-nav-divider"></span>
-                <span class="tl-nav-title upper">The Altar</span>
             </a>
         </div>
     </nav>
 
-    <section class="tl-section-container intro" id="intro">
+    <section class="tl-section-container intro" id="the-story">
         <div class="tl-section-content">
             <h2 class="txt-left">From the stairs...</h2>
             <h2 class="txt-right">...to the altar</h2>
@@ -83,7 +67,7 @@
         </div>
     </section>
 
-    <section class="tl-section-container stairs" id="story1">
+    <section class="tl-section-container stairs" id="the-stair">
         <div class="tl-section-content txt-left">
             <h2>The Stairs</h2>
             <p class="txt-just">
@@ -103,7 +87,7 @@
         </div>
     </section>
 
-    <section class="tl-section-container seed" id="story2">
+    <section class="tl-section-container seed" id="the-seed">
         <div class="tl-section-content">
             <h2 class="">The SEED</h2>
             <p class="txt-just">
@@ -114,7 +98,7 @@
         </div>
     </section>
 
-    <section class="tl-section-container talk" id="story3">
+    <section class="tl-section-container talk" id="the-talk">
         <div class="tl-section-content">
             <h2 class="">The Talk</h2>
             <p class="txt-just">
@@ -135,7 +119,7 @@
         </div>
     </section>
 
-    <section class="tl-section-container journey" id="story4">
+    <section class="tl-section-container journey" id="the-journey">
         <div class="tl-section-content">
             <h2>The Journey</h2>
             <p class="txt-just">
@@ -152,7 +136,7 @@
         </div>
     </section>
 
-    <section class="tl-section-container proposal" id="story5">
+    <section class="tl-section-container proposal" id="the-proposal">
         <div class="tl-section-content">
             <h2>The Proposal</h2>
             <p class="txt-just">
@@ -165,7 +149,7 @@
         </div>
     </section>
 
-    <section class="tl-section-container altar" id="story6">
+    <section class="tl-section-container altar" id="the-altar">
         <div class="tl-section-content">
             
             <h2>The Altar</h2>

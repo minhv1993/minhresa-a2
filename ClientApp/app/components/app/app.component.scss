@@ -3,6 +3,7 @@
 
 body, html {
     font-size: 20px;
+    font-family: $overlock-font;
 
     @media (min-width: $min-width-sm){
         font-size: 16px;
@@ -13,9 +14,7 @@ body, html {
     }
 }
 
-$hero-padding: 8rem;
 .hero {
-    padding: $hero-padding 0;
     background: gray no-repeat center;
     background-size:cover;
     position:relative;
@@ -40,7 +39,7 @@ $hero-padding: 8rem;
     &.fullscreen {
         height: 100vh;
         &:after {
-            height: 2 * $hero-padding;
+            height: 8rem;
         }
     }
 
@@ -52,7 +51,7 @@ $hero-padding: 8rem;
 .hero-body {
     text-align: center;
     height: 100%;
-    padding: 0 1rem;
+    padding: 4rem 1rem;
     display: inline-block;
     position: relative;
     z-index: 1;

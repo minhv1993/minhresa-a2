@@ -4,7 +4,14 @@
 
 // HERO
 #hero-home {
-    background-image: url(../img/hero-1.jpg);
+    background-image: url(../img/hero-home.jpg);
+}
+
+.hero-body {
+    padding: 4rem 3rem 1rem;
+    @include flexbox();
+    @include flex-dir(column);
+    @include justify-content(space-between);
 }
 
 .announce,.save-the-date {
@@ -12,12 +19,11 @@
 }
 
 .announce-name {
+    font-family: $grand-hotel-font;
     @include flexbox();
     @include justify-content(center);
     @include flex-dir(column);
     @include align-items(center);
-    font-size: 6rem;
-    font-family: $grand-hotel-font;
 
     span {
         line-height: 4rem;
@@ -39,13 +45,11 @@
 
 .announce-sub-text {
     line-height: 1.5;
-    font-size: 1.5rem;
 }
 
 .save-the-date {
     color: $mustard-yellow;
     line-height: 1.5;
-    font-size: 1.4rem;
 
     div{
         display: inline;
@@ -58,7 +62,6 @@
     left: 0;
     width: 100%;
     bottom: 0;
-    font-size: 3.5rem;
     text-decoration: underline;
 
     i {
@@ -182,31 +185,26 @@ $tl-color: $blue-dusty-dark;
 .tl-nav-wrapper {
     position: fixed;
     bottom: 0;
-    right: 1.5rem;
-    max-height: 100%;
+    top: 0; // TODO: remove for dynamic scroll
+    right: 0;
+    max-height: 100vh;
+    z-index: 1;
     @include flexbox();
-    @include flex-flow(column nowrap);
     @include justify-content(flex-end);
-    margin: 0 10px;
-    border: 1px solid $tl-color;
-    box-shadow: 0 0 4px $tl-color;
 }
 
 $tl-nav-padding: 1em;
 .tl-nav {
+    position: relative;
+    left: 0;
+    list-style-type: none;
     @include flexbox();
     @include flex-dir(column);
-    @include justify-content(space-between);
-    padding: $tl-nav-padding 0;
-    list-style-type: none;
-    position: absolute;
-    margin: 0;
-    right: -2.2em;
-    height: calc(100% - $tl-nav-padding * 2);
+    @include justify-content(space-around);
     @include transition(all .5s ease-in-out);
 }
 
-a.tl-nav-link {
+.tl-nav-link {
     font-size: 1.25em;
     display: block;
     padding: 1em 0;
@@ -224,23 +222,33 @@ a.tl-nav-link {
         flex-grow: 1;
     }
 
-    &:hover, &.active {
-        span{
-            font-weight: bold;
-        }
-        .tl-nav-divider {
-            width: 1em;
-        }
-
+    &:hover, 
+    &.active {
         .tl-nav-icon {
-            color: white;
-            background: $blue-dusty-dark;
+            color: $white-antique;
+            width: 3rem;
+            height: 3rem;
+            font-size: 2rem;
+            padding: 0.1rem 0 0 0.4rem;
         }
     }
 
     &:focus {
         background-color: transparent;
     }
+}
+
+.tl-nav-icon {
+    font-size: 1.5rem;
+    background: #096c8a;
+    border: 0.1rem solid $blue-dusty-dark;
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    text-align: center;
+    padding: 0.2rem 0 0 0.2rem;
 }
 
 $circle-button-size: 3rem;
@@ -276,18 +284,6 @@ a.btn-top {
     width: 4.5em;
     text-align: right;
     display: none;
-}
-
-.tl-nav-icon {
-    font-size: 2rem;
-    background: white;
-    border: 2px solid $blue-dusty-dark;
-    border-radius: 3em;
-    width: $circle-button-size;
-    height: $circle-button-size;
-    @include flexbox();
-    @include justify-content(center);
-    @include align-items(center);
 }
 
 .tl-nav-body {

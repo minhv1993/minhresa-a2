@@ -31,15 +31,15 @@ import { RsvpComponent } from './components/rsvp/rsvp.component';
         HttpModule,
         FormsModule,
         RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
+            { path: '', component: HomeComponent, pathMatch: 'full' },
+            { path: 'home', redirectTo: '',  },
             { path: 'schedule', component: ScheduleComponent },
             { path: 'wedding-party', component: WeddingPartyComponent},
             { path: 'registry', component: RegistryComponent},
             { path: 'gallery', component: GalleryComponent},
             { path: 'travel', component: TravelComponent},
             { path: 'rsvp', component: RsvpComponent},
-            { path: '**', redirectTo: 'home' }
+            { path: '**', redirectTo: '' }
         ])
     ]
 })
