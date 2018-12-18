@@ -5,6 +5,7 @@
 // HERO
 #hero-home {
     background-image: url(../img/hero-home.jpg);
+    font-size: 1rem;
 }
 
 .hero-body {
@@ -44,12 +45,14 @@
 }
 
 .announce-sub-text {
+    font-size: 1.5rem;
     line-height: 1.5;
 }
 
 .save-the-date {
     color: $mustard-yellow;
     line-height: 1.5;
+    font-size: 1.4rem;
 
     div{
         display: inline;
@@ -58,11 +61,9 @@
 
 .lnk-story {
     font-family: $grand-hotel-font;
-    position: absolute;
-    left: 0;
     width: 100%;
-    bottom: 0;
     text-decoration: underline;
+    font-size: 2.5rem;
 
     i {
         font-size: .5em;
@@ -218,18 +219,31 @@ $tl-nav-padding: 1em;
         @include transition(all 0.3s ease-in-out);
     }
     
-    &.active {
-        flex-grow: 1;
-    }
-
     &:hover, 
     &.active {
         .tl-nav-icon {
-            color: $white-antique;
+            color: $eggplant;
+            border-color: $eggplant;
             width: 3rem;
             height: 3rem;
             font-size: 2rem;
             padding: 0.1rem 0 0 0.4rem;
+        }
+    }
+
+    &.alt {
+        .tl-nav-icon{
+            padding: 0.15rem 0 0 0.1rem;
+
+            &:hover,
+            &.active {
+                color: $blue-dusty-dark;
+                border-color: $blue-dusty-dark;
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1.5rem;
+                padding: 0.15rem 0 0 0.1rem;
+            }
         }
     }
 
@@ -240,15 +254,16 @@ $tl-nav-padding: 1em;
 
 .tl-nav-icon {
     font-size: 1.5rem;
-    background: #096c8a;
+    background: white;
     border: 0.1rem solid $blue-dusty-dark;
-    color: white;
+    color: $blue-dusty-dark;
     width: 2.5rem;
     height: 2.5rem;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
     text-align: center;
     padding: 0.2rem 0 0 0.2rem;
+    border-right: 0;
 }
 
 $circle-button-size: 3rem;

@@ -1,7 +1,7 @@
 <!-- Intro Header -->
 <section id="hero-home" class="hero fullscreen">
     <div class="hero-body">
-        <div>
+        <div class="announce-wrapper">
             <div class="announce">
                 <div class="announce-name">
                     <span class="name">Minh</span>
@@ -29,9 +29,6 @@
 <section id="story" class="tl-wrapper" >
     <nav class="tl-nav-wrapper" id="timeline-nav">
         <div class="tl-nav">
-            <a class="btn btn-secondary btn-top page-scroll" (click)="toTop()">
-                <i class="fa fa-angle-double-up"></i>
-            </a>
             <a class="tl-nav-link" routerLink="/" fragment="the-stair">
                 <span class="tl-nav-icon"><i class="ico-stair"></i></span>
             </a>
@@ -49,6 +46,9 @@
             </a>
             <a class="tl-nav-link" routerLink="/" fragment="the-altar">
                 <span class="tl-nav-icon"><i class="ico-altar"></i></span>
+            </a>
+            <a class="tl-nav-link alt" routerLink="/" fragment="" (click)="toTop()">
+                <span class="tl-nav-icon"><i class="fa fa-angle-double-up"></i></span>
             </a>
         </div>
     </nav>

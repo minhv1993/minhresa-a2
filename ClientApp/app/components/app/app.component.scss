@@ -14,6 +14,27 @@ body, html {
     }
 }
 
+a, 
+a.active, 
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+.btn {
+    font-size: 1rem;
+    background: $blue-dusty-dark;
+    border-radius: 1rem;
+    border:0.1rem solid $blue-dusty-dark;
+    color: white;
+
+    &:hover {
+        background: $bluebell;
+        border-color: $bluebell;
+        color: white;
+    }
+}
+
 .hero {
     background: gray no-repeat center;
     background-size:cover;
