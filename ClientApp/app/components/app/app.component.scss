@@ -35,6 +35,132 @@ a:focus {
     }
 }
 
+.bold {
+    font-weight: bold;
+}
+
+.upper {
+    text-transform: uppercase;
+}
+
+a, .btn, button, .lnk{
+    cursor: pointer;
+    text-decoration: none;
+    @include transition(.25s all ease-in-out);
+
+    &.disabled, &[disabled="true"] {
+        pointer-events: none !important;
+    }
+}
+
+.lnk {
+    &.disabled, &[disabled="true"] {
+        color: $gray;
+        text-shadow: 0 0 0.2rem white;
+    }
+}
+
+.lnk-primary {
+    color: $blue-dusty-dark;
+    text-shadow: 0 0 0.2rem white;
+    cursor: pointer;
+    
+    &:hover {
+        color: white;
+        text-shadow: 0 0 0.2rem $blue-dusty-dark;
+    }
+}
+
+.lnk-secondary {
+    color: white;
+    text-shadow: 0 0 0.2rem $blue-dusty-dark;
+    cursor: pointer;
+    
+    &:hover {
+        color: $blue-dusty-dark;
+        text-shadow: 0 0 0.2rem white;
+    }
+}
+
+.btn-container {
+    padding: 0.5rem 0;
+    @include flexbox();
+    @include justify-content(space-around);
+    @include align-items(center);
+}
+
+.btn {
+    border: 0.1rem solid $blue-dusty-dark;
+    border-radius: 1rem;
+    padding: 0.3rem 0.6rem;
+    @include flexbox();
+    @include justify-content(center);
+    @include align-items(center);
+
+    &:hover {
+        box-shadow: 0 0 0.2rem $blue-dusty-dark;
+    }
+
+    &.disabled, &[disabled="true"] {
+        border-color: $gray;
+    }
+}
+
+.btn-primary {
+    color: white;
+    background: $blue-dusty-dark;
+
+    &:hover {
+        color: $blue-dusty-dark;
+        background: white;
+    }
+
+    &.disabled, &[disabled="true"] {
+        background: $gray;
+    }
+}
+
+.btn-secondary {
+    color: $blue-dusty-dark;
+    background: white;
+
+    &:hover {
+        color: white;
+        background: $blue-dusty-dark;
+    }
+
+    &.disabled, &[disabled="true"] {
+        color: $gray;
+        border-color: $gray;
+    }
+}
+
+.btn-icon {
+    width: 43px;
+    height: 43px;
+    font-size: 26px;
+    background: white;
+    color: $blue-dusty-dark;
+    padding: 0;
+
+    &:hover {
+        background: $blue-dusty-dark;
+        color: white;
+    }
+}
+
+.txt-left {
+    text-align: left;
+}
+.txt-right {
+    text-align: right;
+}
+.txt-center {
+    text-align: center;
+}
+.txt-just {
+    text-align: justify;
+}
 .hero {
     background: gray no-repeat center;
     background-size:cover;

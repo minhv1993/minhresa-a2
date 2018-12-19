@@ -6,6 +6,10 @@
 #hero-home {
     background-image: url(../img/hero-home.jpg);
     font-size: 1rem;
+
+    &:after {
+        height: 100vh;
+    }
 }
 
 .hero-body {
@@ -15,61 +19,64 @@
     @include justify-content(space-between);
 }
 
-.announce,.save-the-date {
-    text-shadow: 0 0 4px $blue-dusty-dark;
+.announce {
+    text-shadow: 0 0 0.2rem $blue-dusty-dark;
 }
 
 .announce-name {
+    font-size: 4rem;
+    line-height: 3.5rem;
     font-family: $grand-hotel-font;
     @include flexbox();
     @include justify-content(center);
     @include flex-dir(column);
     @include align-items(center);
 
-    span {
-        line-height: 4rem;
-    }
-
     .name {
-
         &.txt-right {
             text-align: right;
         }
     }
 
-    .and {    
-        line-height: 3rem;
-        margin-bottom: -1.5rem;
+    .and {
+        margin-top: -1rem;
+        margin-bottom: -1.8rem;
     }
 
 }
 
 .announce-sub-text {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     line-height: 1.5;
 }
 
 .save-the-date {
-    color: $mustard-yellow;
+    color: $eggplant;
     line-height: 1.5;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
 
     div{
-        display: inline;
+        display: inline-block;
     }
 }
 
 .lnk-story {
-    font-family: $grand-hotel-font;
     width: 100%;
-    text-decoration: underline;
     font-size: 2.5rem;
+    position: relative;
+    font-family: $grand-hotel-font;
+    color: $white-antique;
+
+    &:hover {
+        color: $blue-dusty-dark;
+    }
 
     i {
-        font-size: .5em;
-        position: relative;
-        top: 1em;
-        right: -.1em;
+        top: 100%;
+        left: 50%;
+        font-size: 1.5rem;
+        position: absolute;
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -144,9 +151,9 @@ $tl-color: $blue-dusty-dark;
     min-height: 100vh;
 }
 .tl-section-content {
-    padding: 2rem 5rem 2rem 2rem;
+    padding: 2rem 3rem 1rem 1rem;
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1.125rem;
 
     h1, h2, h3 {
         font-family: $grand-hotel-font;
@@ -224,9 +231,9 @@ $tl-nav-padding: 1em;
         .tl-nav-icon {
             color: $eggplant;
             border-color: $eggplant;
-            width: 3rem;
-            height: 3rem;
-            font-size: 2rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.75rem;
             padding: 0.1rem 0 0 0.4rem;
         }
     }
@@ -239,10 +246,10 @@ $tl-nav-padding: 1em;
             &.active {
                 color: $blue-dusty-dark;
                 border-color: $blue-dusty-dark;
-                width: 2.5rem;
-                height: 2.5rem;
-                font-size: 1.5rem;
-                padding: 0.15rem 0 0 0.1rem;
+                width: 2rem;
+                height: 2rem;
+                font-size: 1.25rem;
+                padding: 0.1rem 0 0 0.1rem;
             }
         }
     }
@@ -253,16 +260,16 @@ $tl-nav-padding: 1em;
 }
 
 .tl-nav-icon {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     background: white;
     border: 0.1rem solid $blue-dusty-dark;
     color: $blue-dusty-dark;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
     text-align: center;
-    padding: 0.2rem 0 0 0.2rem;
+    padding: 0.1rem 0 0 0.1rem;
     border-right: 0;
 }
 

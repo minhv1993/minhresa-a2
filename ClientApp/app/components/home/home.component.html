@@ -10,50 +10,42 @@
                 </div>
                 <div class="announce-sub-text upper bold">Are Getting Married</div>
             </div>
+        </div>
+        <div class="save-the-date-wrapper">
             <div class="save-the-date upper bold">
                 <div>Join Us</div>
                 <div>September 28, 2019</div>
             </div>
             <div class="btn-container">
                 <a class="btn btn-secondary">Save The Date</a>
-                <a class="btn btn-secondary nav-item" href="#rsvp">RSVP</a>
+                <a class="btn btn-secondary nav-item" routerLink="/rsvp">RSVP</a>
             </div>
         </div>
-        <a class="lnk lnk-secondary lnk-story page-scroll" routerLink="/" fragment="the-story">
-            The Story<i class="fa fa-level-down-alt"></i>
+        <a class="lnk lnk-secondary lnk-story page-scroll" routerLink="/" fragment="the-story" (click)="scrollTo('story')">
+            The Story<i class="fa fa-angle-double-down"></i>
         </a>
     </div>
 </section>
 
 <!-- About Section -->
 <section id="story" class="tl-wrapper" >
-    <nav class="tl-nav-wrapper" id="timeline-nav">
+    <nav class="tl-nav-wrapper" id="timeline-nav" #timelinenav [class.active]="isTimelineVisible">
         <div class="tl-nav">
-            <a class="tl-nav-link" routerLink="/" fragment="the-stair">
-                <span class="tl-nav-icon"><i class="ico-stair"></i></span>
+            <a class="tl-nav-link" 
+            *ngFor="let story of storyNames" 
+            (click)="scrollTo(story)"
+            routerLink="/" 
+            fragment="the-{{story}}"
+            [class.active]="isStoryActive(story)">
+                <span class="tl-nav-icon"><i class="ico-{{story}}"></i></span>
             </a>
-            <a class="tl-nav-link" routerLink="/" fragment="the-seed">
-                <span class="tl-nav-icon"><i class="ico-seed"></i></span>
-            </a>
-            <a class="tl-nav-link" routerLink="/" fragment="the-talk">
-                <span class="tl-nav-icon"><i class="ico-talk"></i></span>
-            </a>
-            <a class="tl-nav-link" routerLink="/" fragment="the-journey">
-                <span class="tl-nav-icon"><i class="ico-journey"></i></span>
-            </a>
-            <a class="tl-nav-link" routerLink="/" fragment="the-proposal">
-                <span class="tl-nav-icon"><i class="ico-proposal"></i></span>
-            </a>
-            <a class="tl-nav-link" routerLink="/" fragment="the-altar">
-                <span class="tl-nav-icon"><i class="ico-altar"></i></span>
-            </a>
-            <a class="tl-nav-link alt" routerLink="/" fragment="" (click)="toTop()">
+            <a class="tl-nav-link alt" routerLink="/" fragment="" (click)="scrollTo()">
                 <span class="tl-nav-icon"><i class="fa fa-angle-double-up"></i></span>
             </a>
         </div>
     </nav>
 
-    <section class="tl-section-container intro" id="the-story">
+    <section class="tl-section-container intro" id="the-story" #intro>
         <div class="tl-section-content">
             <h2 class="txt-left">From the stairs...</h2>
             <h2 class="txt-right">...to the altar</h2>
@@ -67,7 +59,7 @@
         </div>
     </section>
 
-    <section class="tl-section-container stairs" id="the-stair">
+    <section class="tl-section-container stairs" id="the-stair" #stair>
         <div class="tl-section-content txt-left">
             <h2>The Stairs</h2>
             <p class="txt-just">
@@ -87,7 +79,7 @@
         </div>
     </section>
 
-    <section class="tl-section-container seed" id="the-seed">
+    <section class="tl-section-container seed" id="the-seed" #seed>
         <div class="tl-section-content">
             <h2 class="">The SEED</h2>
             <p class="txt-just">
@@ -98,7 +90,7 @@
         </div>
     </section>
 
-    <section class="tl-section-container talk" id="the-talk">
+    <section class="tl-section-container talk" id="the-talk" #talk>
         <div class="tl-section-content">
             <h2 class="">The Talk</h2>
             <p class="txt-just">
@@ -119,7 +111,7 @@
         </div>
     </section>
 
-    <section class="tl-section-container journey" id="the-journey">
+    <section class="tl-section-container journey" id="the-journey" #journey>
         <div class="tl-section-content">
             <h2>The Journey</h2>
             <p class="txt-just">
@@ -136,7 +128,7 @@
         </div>
     </section>
 
-    <section class="tl-section-container proposal" id="the-proposal">
+    <section class="tl-section-container proposal" id="the-proposal" #proposal>
         <div class="tl-section-content">
             <h2>The Proposal</h2>
             <p class="txt-just">
@@ -149,7 +141,7 @@
         </div>
     </section>
 
-    <section class="tl-section-container altar" id="the-altar">
+    <section class="tl-section-container altar" id="the-altar" #altar>
         <div class="tl-section-content">
             
             <h2>The Altar</h2>

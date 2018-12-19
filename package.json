@@ -47,11 +47,13 @@
     "karma-jasmine": "1.1.0",
     "karma-webpack": "2.0.3",
     "loader-utils": "1.1.0",
+    "ng-in-viewport": "^6.0.3",
     "node-sass": "^4.11.0",
     "preboot": "4.5.2",
     "raw-loader": "^1.0.0",
     "reflect-metadata": "0.1.10",
     "rxjs": "5.4.2",
+    "rxjs-operators": "^1.0.7",
     "sass-loader": "^6.0.6",
     "style-loader": "0.18.2",
     "to-string-loader": "1.1.5",
@@ -62,5 +64,7 @@
     "webpack-merge": "4.1.0",
     "zone.js": "0.8.12"
   },
-  "dependencies": {}
+  "dependencies": {
+    "intersection-observer": "^0.5.1"
+  }
 }
