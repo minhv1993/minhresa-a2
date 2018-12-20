@@ -161,7 +161,7 @@ a, .btn, button, .lnk{
     &:after {
         content: "";
         display: inline-block;
-        height:50%;
+        height: 100%;
         width: 100%;
         background: linear-gradient(to top, white, rgba(255,255,255,0));
         position: absolute;
@@ -211,7 +211,7 @@ a, .btn, button, .lnk{
 @media (min-width: 768px){
     .hero {
         &.condensed {
-            padding: 6rem 0 2rem;
+            padding: 6rem 0;
         }
     }
 

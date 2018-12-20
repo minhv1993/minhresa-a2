@@ -16,10 +16,7 @@
                 <div>Join Us</div>
                 <div>September 28, 2019</div>
             </div>
-            <div class="btn-container">
-                <a class="btn btn-secondary">Save The Date</a>
-                <a class="btn btn-secondary nav-item" routerLink="/rsvp">RSVP</a>
-            </div>
+            <ng-container *ngTemplateOutlet="saveTheDate"></ng-container>
         </div>
         <a class="lnk lnk-secondary lnk-story page-scroll" (click)="scrollTo('story')">
             The Story<i class="fa fa-angle-double-down"></i>
@@ -86,7 +83,7 @@
             <h1 class="">The SEED</h1>
             <p class="txt-just">
                 In the Spring of 2013, Minh and Theresa began to serve on SEED retreat together. SEED retreats involve a lot of meetings and bonding prior to the retreat. Through this process, they learned more about each other and grew closer as friends. It was then that a "seed" formed in Minh’s heart. Some people call it feelings, others may call it a spark. It was Theresa’s quirky personality, love of children, and her faith in God that drew Minh’s attention.
-                <br><br>
+            </p><p>
                 He then began to think of the possibility of them being together in a relationship. In true Ignatian spirit, he took the next 6 months to discern whether the feelings were real and if he was brave enough to ask her out. So dramatic, riiiight?
             </p>
         </div>
@@ -139,9 +136,9 @@
             <h1>The Proposal</h1>
             <p class="txt-just">
                 After a joint discussion with both families, Minh and Theresa decided they were ready for the next step. The following week on February 4, 2018, Theresa was to run her third and final Beach Cities half marathon so Minh thought it would be a great opportunity to propose after her race.
-                <br><br>
+            </p><p>
                 With the help of some of their awesome friends and family, he surprised her by proposing by the ocean on the sands of Huntington Beach. He picked this day because In the moments when she thinks she's sweaty and unflattering, she would still be the most beautiful person to him and he would always want to marry her everyday of his life. 
-                <br><br>
+            </p><p>
                 It truly was a perfect moment.
             </p>
         </div>
@@ -154,10 +151,14 @@
             <p class="txt-just">
                 You have been a part of our story throughout the past 5 years and have made an impact on our lives either individually or jointly. Therefore, we cordially invite you to witness and celebrate this next chapter of our story on <b><em>September 28, 2019</em></b>. 
             </p>
-            <div class="btn-container txt-center">
-                <a class="btn btn-secondary">Save The Date</a>
-                <a class="btn btn-secondary nav-item" href="#rsvp">RSVP</a>
-            </div>
+            <ng-container *ngTemplateOutlet="saveTheDate"></ng-container>
         </div>
     </section>
 </section>
+
+<ng-template #saveTheDate>
+    <div class="btn-container txt-center">
+        <a class="btn btn-secondary">Save The Date</a>
+        <a class="btn btn-secondary nav-item" routerLink="/rsvp">RSVP</a>
+    </div>
+</ng-template>

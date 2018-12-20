@@ -1,1 +1,43 @@
-// component css goes here
+@import '../../shared/styles/variables.scss';
+@import '../../shared/styles/mixins.scss';
+@import '../../../../node_modules/ngx-lightbox/lightbox';
+
+#hero-media {
+    background-image: url(../img/hero-gallery.jpg);
+}
+
+$spacing-size: 0.5rem;
+
+.mg-wrapper {
+    margin: 0 0.5rem;
+}
+
+.mg-sizer, .mg-item {
+    width: 100%
+}
+
+.mg-sizer {
+    opacity: 0;
+    display: none;
+}
+
+.mg-item {
+    padding: 0 0.5rem 1rem;
+
+    img {
+        width: 100%;
+        border-radius: 0.5rem;
+    }
+}
+
+@media (min-width: $min-width-sm){
+    .mg-sizer, .mg-item {
+        width: 50%;
+    }
+}
+
+@media (min-width: $min-width-md){
+    .mg-sizer, .mg-item {
+        width: 33.333333333333%;
+    }
+}

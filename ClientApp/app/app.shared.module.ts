@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { NgxMasonryModule } from 'ngx-masonry';
+import { LightboxModule } from 'ngx-lightbox';
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -40,7 +42,9 @@ import { RsvpComponent } from './components/rsvp/rsvp.component';
             { path: 'travel', component: TravelComponent},
             { path: 'rsvp', component: RsvpComponent},
             { path: '**', redirectTo: 'home' }
-        ])
+        ]),
+        NgxMasonryModule,
+        LightboxModule
     ]
 })
 export class AppModuleShared {}

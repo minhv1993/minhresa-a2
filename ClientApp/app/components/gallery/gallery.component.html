@@ -1,1 +1,13 @@
-<!--component html goes here -->
+<!-- Hero -->
+<section id="hero-media" class="hero condensed overlap">
+    <div class="hero-body container flex center">
+        <h1 class="page-title">Gallery</h1>
+    </div>
+</section>
+<!-- Media -->
+<ngx-masonry [options]="myOptions" [useImagesLoaded]="true" class="mg-wrapper">
+    <div class="mg-sizer"></div>
+    <ngxMasonryItem class="mg-item" *ngFor="let item of galleryItems; let i = index">
+        <img [src]="item.src" (click)="open(i)"/>
+    </ngxMasonryItem>
+</ngx-masonry>
