@@ -1,3 +1,4 @@
 {
-    "appService.deploySubpath": "wwwwroot"
+    "appService.deploySubpath": "wwwwroot",
+    "appService.defaultWebAppToDeploy": "minhresa"
 }
