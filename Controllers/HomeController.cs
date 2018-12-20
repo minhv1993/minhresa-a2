@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace minhresa_a2.Controllers
+namespace minhresa.Controllers
 {
     public class HomeController : Controller
     {

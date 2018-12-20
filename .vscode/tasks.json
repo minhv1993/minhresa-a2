@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/minhresa-a2.csproj"
+                "${workspaceFolder}/minhresa.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
