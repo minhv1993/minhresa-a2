@@ -14,27 +14,6 @@ body, html {
     }
 }
 
-a, 
-a.active, 
-a:hover,
-a:focus {
-    text-decoration: none;
-}
-
-.btn {
-    font-size: 1rem;
-    background: $blue-dusty-dark;
-    border-radius: 1rem;
-    border:0.1rem solid $blue-dusty-dark;
-    color: white;
-
-    &:hover {
-        background: $bluebell;
-        border-color: $bluebell;
-        color: white;
-    }
-}
-
 .bold {
     font-weight: bold;
 }
@@ -43,42 +22,49 @@ a:focus {
     text-transform: uppercase;
 }
 
+a, 
+a.active, 
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
 a, .btn, button, .lnk{
     cursor: pointer;
     text-decoration: none;
     @include transition(.25s all ease-in-out);
 
     &.disabled, &[disabled="true"] {
-        pointer-events: none !important;
+        pointer-events: none;
     }
 }
 
 .lnk {
     &.disabled, &[disabled="true"] {
         color: $gray;
-        text-shadow: 0 0 0.2rem white;
+        text-shadow: 0 0 0.25rem white;
     }
 }
 
 .lnk-primary {
     color: $blue-dusty-dark;
-    text-shadow: 0 0 0.2rem white;
+    text-shadow: 0 0 0.25rem white;
     cursor: pointer;
     
     &:hover {
         color: white;
-        text-shadow: 0 0 0.2rem $blue-dusty-dark;
+        text-shadow: 0 0 0.25rem $blue-dusty-dark;
     }
 }
 
 .lnk-secondary {
     color: white;
-    text-shadow: 0 0 0.2rem $blue-dusty-dark;
+    text-shadow: 0 0 0.25rem $blue-dusty-dark;
     cursor: pointer;
     
     &:hover {
         color: $blue-dusty-dark;
-        text-shadow: 0 0 0.2rem white;
+        text-shadow: 0 0 0.25rem white;
     }
 }
 
@@ -90,15 +76,16 @@ a, .btn, button, .lnk{
 }
 
 .btn {
-    border: 0.1rem solid $blue-dusty-dark;
-    border-radius: 1rem;
-    padding: 0.3rem 0.6rem;
+    border: 0.125rem solid $blue-dusty-dark;
+    border-radius: 1.5rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 1.25rem;
     @include flexbox();
     @include justify-content(center);
     @include align-items(center);
 
     &:hover {
-        box-shadow: 0 0 0.2rem $blue-dusty-dark;
+        box-shadow: 0 0 0.25rem $blue-dusty-dark;
     }
 
     &.disabled, &[disabled="true"] {
