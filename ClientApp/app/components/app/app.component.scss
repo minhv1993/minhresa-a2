@@ -2,7 +2,7 @@
 @import '../../shared/styles/mixins.scss';
 
 body, html {
-    font-size: 20px;
+    font-size: 16px;
     font-family: $overlock-font;
 
     @media (min-width: $min-width-sm){

@@ -21,39 +21,42 @@
                 <a class="btn btn-secondary nav-item" routerLink="/rsvp">RSVP</a>
             </div>
         </div>
-        <a class="lnk lnk-secondary lnk-story page-scroll" routerLink="/" fragment="the-story" (click)="scrollTo('story')">
+        <a class="lnk lnk-secondary lnk-story page-scroll" (click)="scrollTo('story')">
             The Story<i class="fa fa-angle-double-down"></i>
         </a>
     </div>
 </section>
 
 <!-- About Section -->
-<section id="story" class="tl-wrapper" >
-    <nav class="tl-nav-wrapper" id="timeline-nav" #timelinenav [class.active]="isTimelineVisible">
+<section id="story" class="tl-wrapper" #story>
+    <nav class="tl-nav-wrapper" id="timeline-nav" 
+        [class.active]="isTimelineVisible" 
+        [style.top]="timelineStyle.top" 
+        [style.bottom]="timelineStyle.bottom" 
+        [style.opacity]="timelineStyle.opacity"
+        [style.display]="timelineStyle.display">
         <div class="tl-nav">
             <a class="tl-nav-link" 
-            *ngFor="let story of storyNames" 
+            *ngFor="let story of storyNames; let i = index" 
             (click)="scrollTo(story)"
-            routerLink="/" 
-            fragment="the-{{story}}"
-            [class.active]="isStoryActive(story)">
+            [class.active]="storyActive[i]">
                 <span class="tl-nav-icon"><i class="ico-{{story}}"></i></span>
             </a>
-            <a class="tl-nav-link alt" routerLink="/" fragment="" (click)="scrollTo()">
+            <a class="tl-nav-link alt" (click)="scrollTo()">
                 <span class="tl-nav-icon"><i class="fa fa-angle-double-up"></i></span>
             </a>
         </div>
     </nav>
 
-    <section class="tl-section-container intro" id="the-story" #intro>
+    <section class="tl-section-container intro" id="the-story">
         <div class="tl-section-content">
-            <h2 class="txt-left">From the stairs...</h2>
-            <h2 class="txt-right">...to the altar</h2>
+            <h1 class="txt-left">From the stairs...</h1>
+            <h1 class="txt-right">...to the altar</h1>
             <p class="txt-just">
                 This is the story of how Minh stumbled upon Theresa and the journey that lead them to the altar.
             </p>
             <p class="txt-center">
-                Scroll down or use the navigation on the right.
+                Scroll down or use the navigation on the right to read our story.
             </p>
             <div class="txt-center"><i class="fa fa-hand-point-right"></i></div>
         </div>
@@ -61,13 +64,12 @@
 
     <section class="tl-section-container stairs" id="the-stair" #stair>
         <div class="tl-section-content txt-left">
-            <h2>The Stairs</h2>
+            <h1>The Stairs</h1>
             <p class="txt-just">
                 After a night of the stereotypical college experience, Theresa found herself unable to walk up the stairs to go to sleep. It was then that Minh swooped in and assisted her up the stairs along with some other Selva hallmates.
-                <br><br>
-                The next day at the Mesa Commons Dining Hall, Minh and Theresa met again in line for a chicken sandwich. 
             </p>
-            <p>
+            <p>The next day at the Mesa Commons Dining Hall, Minh and Theresa met again in line for a chicken sandwich.</p>
+            <p class="convo">
                 Minh asked, <em>"Hi, Theresa. Do you remember me?"</em><br>
                 Theresa replied, <em>"Um, who are you?"</em><br>
                 He said, <em>"I helped you up the stairs last night..."</em><br>
@@ -81,7 +83,7 @@
 
     <section class="tl-section-container seed" id="the-seed" #seed>
         <div class="tl-section-content">
-            <h2 class="">The SEED</h2>
+            <h1 class="">The SEED</h1>
             <p class="txt-just">
                 In the Spring of 2013, Minh and Theresa began to serve on SEED retreat together. SEED retreats involve a lot of meetings and bonding prior to the retreat. Through this process, they learned more about each other and grew closer as friends. It was then that a "seed" formed in Minh’s heart. Some people call it feelings, others may call it a spark. It was Theresa’s quirky personality, love of children, and her faith in God that drew Minh’s attention.
                 <br><br>
@@ -92,11 +94,11 @@
 
     <section class="tl-section-container talk" id="the-talk" #talk>
         <div class="tl-section-content">
-            <h2 class="">The Talk</h2>
+            <h1 class="">The Talk</h1>
             <p class="txt-just">
                 After Mustard Seeds’ first and only win of the Fall 2013 intramural volleyball season, the group went to celebrate at In-N-Out at UTC. Not sure why, but Minh thought it was wise to ask her out right there and then. After getting his double patty protein style burger, he asked Theresa to sit across from him.
             </p>
-            <p>
+            <p class="convo">
                 Minh asked, <em>"Hey Theresa, do you want to go on a date?"</em><br>
                 Theresa puzzled, <em>"What do you mean by a date? Like a date date?"</em><br>
                 Minh explained, <em>"Yeah, like a date date. Like I like you kinda date"</em><br>
@@ -113,16 +115,20 @@
 
     <section class="tl-section-container journey" id="the-journey" #journey>
         <div class="tl-section-content">
-            <h2>The Journey</h2>
+            <h1>The Journey</h1>
             <p class="txt-just">
                 <b>First date?</b> Sushi dinner (because it’s Theresa’s favorite food) and a walk around Downtown Disney
-                <br><br>
+            </p>
+            <p>
                 <b>Best date?</b> The 1<sup>st</sup> Valentine’s Day as a couple, Minh planned a surprise picnic at the Bunny Park in Newport Beach and made Theresa a mix CD. 
-                <br><br>
+            </p>
+            <p>
                 <b>Funniest date?</b> On their 2<sup>nd</sup> anniversary, we decided to be fancy shmancy and went to Mastro’s for a steak dinner. The waiter asked if we wanted a blue crab topping on the steak. We thought it was free so we said, "Yes!" And then it came out to be an additional $20 on the check. At least there was free cake for the anniversary and delicious bread (which we boxed, bagged, and forgot on the table).
-                <br><br>
+            </p>
+            <p>
                 <b>Cheesiest thing?</b> Since we have a common love for music, we decided to choose each year to define each year’s experiences in our relationship. The songs you hear on the website are their songs.
-                <br><br>
+            </p>
+            <p>
                 <b>Fun Facts?</b> During the dating period up until we became an official couple, Minh would randomly ask Theresa to marry him, which she would reject every time. Talk about go big or go home, right?
             </p>
         </div>
@@ -130,7 +136,7 @@
 
     <section class="tl-section-container proposal" id="the-proposal" #proposal>
         <div class="tl-section-content">
-            <h2>The Proposal</h2>
+            <h1>The Proposal</h1>
             <p class="txt-just">
                 After a joint discussion with both families, Minh and Theresa decided they were ready for the next step. The following week on February 4, 2018, Theresa was to run her third and final Beach Cities half marathon so Minh thought it would be a great opportunity to propose after her race.
                 <br><br>
@@ -144,7 +150,7 @@
     <section class="tl-section-container altar" id="the-altar" #altar>
         <div class="tl-section-content">
             
-            <h2>The Altar</h2>
+            <h1>The Altar</h1>
             <p class="txt-just">
                 You have been a part of our story throughout the past 5 years and have made an impact on our lives either individually or jointly. Therefore, we cordially invite you to witness and celebrate this next chapter of our story on <b><em>September 28, 2019</em></b>. 
             </p>

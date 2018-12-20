@@ -1,5 +1,6 @@
-import { Component, HostListener, AfterViewInit, ViewChild, ViewChildren, ElementRef } from '@angular/core';
+import { Component, HostListener, AfterViewInit, ViewChild, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { Router, NavigationEnd, NavigationExtras } from '@angular/router';
+import { fn } from '@angular/compiler/src/output/output_ast';
 
 @Component({
     selector: 'home',
@@ -9,86 +10,83 @@ import { Router, NavigationEnd, NavigationExtras } from '@angular/router';
 export class HomeComponent implements AfterViewInit {
     storyNames: string[] = ['stair','seed','talk','journey','proposal','altar'];
 
-    activeStory: string = '';
+    storyActive: boolean[] = [false, false, false, false, false, false];
 
-    isTimelineVisible: boolean = false;
+    timelineStyle: any = {
+        top: '100vh',
+        opacity: '0',
+        bottom: '0'
+    };
 
-    timelineStyle: number = 100;
+    @ViewChild('story') story: ElementRef | undefined;
 
-    @ViewChild('timelinenav') timelineNav: ElementRef | undefined;
+    @ViewChildren(['stair','seed','talk','journey','proposal','altar'].join(',')) stories: QueryList<ElementRef> | undefined;
 
-    @ViewChild('intro') intro: ElementRef | undefined;
-
-    @ViewChildren(['stair','seed','talk','journey','proposal','altar'].join(',')) stories: any;
-
-    constructor(private router: Router) {
-        router.events.subscribe(s => {
-            if(s instanceof NavigationEnd) {
-                const tree = router.parseUrl(router.url);
-                if(tree.fragment){
-                    this.activeStory = tree.fragment.replace('the-', '');
-                }else{
-                    this.activeStory = '';
-                }
-            }
+    constructor(){}
+    
+    ngAfterViewInit(): void {
+        window.scrollTo({
+            top: 0,
+            behavior: 'auto'
         });
     }
 
-    ngAfterViewInit(){
-        const tree = this.router.parseUrl(this.router.url);
-        if(tree.fragment){
-            this.scrollToElem(document.querySelector('#' + tree.fragment));
-        }
-    }
-    
     @HostListener('window:scroll', ['$event'])
     onWindowScroll(e: any){
-        if(e.target.documentElement && this.timelineNav && this.intro && this.stories){
-            const doc = e.target.documentElement;
-            const intro = this.intro.nativeElement;
+        if(e && e.target && e.target.documentElement){
+            this.calcTimelineAttr(e.target.documentElement);
+        }
+    }
 
-    
+    calcTimelineAttr(doc: any){
+        if(doc && this.story && this.stories){
+            const storyElem = this.story.nativeElement;
+
             const vpTop = doc.scrollTop;
             const vpHeight = doc.clientHeight;
             const vpBot = vpTop + vpHeight;
-    
-            const introTop = intro.getBoundingClientRect().y;
-            const introBot = introTop + intro.clientHeight;
-    
-            // Show & Hide the timeline
-            this.isTimelineVisible = vpTop + vpHeight >= introTop;
+
+            const storyBox = storyElem.getBoundingClientRect();
+            const storyTop = storyBox.top + vpTop;
+            const storyBot = storyTop + storyBox.height;
     
             // Height & opacity of the timeline
-            /*var svpTop = storyTop - vpTop;
-            var tlTop = (svpTop > 0 ? svpTop : 0);
-            $timelineNav.css('top', tlTop + 'px');
+            const fourth = vpHeight/4;
+            const svpTop = storyTop - vpTop;
+            const tlTop = (svpTop > 0 ? svpTop : 0);
+            const tlTopFourth = (svpTop > fourth ? svpTop : fourth);
     
-            var svpBot = vpBot - storyBot;
-            var tlBot = (svpBot > 0 ? svpBot : 0)
-            $timelineNav.css('bottom', tlBot + 'px');
+            const svpBot = vpBot - storyBot;
+            const tlBot = (svpBot > 0 ? svpBot : 0)
     
-            var opacity = 1 - ((tlTop >= tlBot ? tlTop : tlBot) / vpHeight);
-            $timelineNav.css('opacity', opacity);
+            const opacity = 1 - ((tlTop >= tlBot ? tlTop : tlBot) / vpHeight);
+
+            this.timelineStyle = {
+                top: tlTopFourth + 'px',
+                bottom: tlBot + 'px',
+                opacity: opacity,
+                display: opacity > 0.5 ? 'flex': 'none'
+            }
     
             // Focus on the current section
-            if(!window.isStoryClicked){
-                $('.tl-section-container').each(function(index) {
-                    var $el = $(this);
-                    var elTop = $el.offset().top;
-                    var elBot = elTop + $el.height();
-                    var diffTop = vpTop >= elTop ? vpTop : elTop;
-                    var diffBot = vpBot <= elBot ? vpBot : elBot;
-                    var diffHeight = diffBot - diffTop;
+            if(this.stories.length > 0){
+                this.stories.forEach((elemRef, i) => {
+                    this.storyActive[i] = false;
+                    const elem = elemRef.nativeElement;
+                    const elemBox = elem.getBoundingClientRect();
+
+                    const elTop = elemBox.top + vpTop;
+                    const elBot = elTop + elemBox.height;
+                    const diffTop = vpTop >= elTop ? vpTop : elTop;
+                    const diffBot = vpBot <= elBot ? vpBot : elBot;
+                    const diffHeight = diffBot - diffTop;
     
                     if(diffHeight > vpHeight * 3/5)
                     {
-                        var selector = 'a.tl-nav-link[href="#{id}"]'.replace('{id}', $el.attr('id'));
-                        var $anchor = $(selector);
-                        $('a.tl-nav-link').removeClass('active')
-                        $anchor.addClass('active');
+                        this.storyActive[i] = true;
                     }
-                });
-            }*/
+                })
+            }
         }
     }
 
@@ -110,20 +108,5 @@ export class HomeComponent implements AfterViewInit {
                 behavior: 'smooth'
             });
         }
-    }
-
-    isStoryActive(story: string){
-        return this.activeStory === story;
-    }
-
-    private getElemOffsetTop(elem: any){
-        let offsetTop = 0;
-        let el = elem;
-    
-        while(el){
-            offsetTop += el.offsetTop;
-            el = elem.parentElement;
-        }
-        return offsetTop;
     }
 }

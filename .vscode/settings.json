@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/1eebf4b0-2325-4ded-8679-d748b67d1c0e/resourceGroups/mtv/providers/Microsoft.Web/sites/minhresa",
+    "appService.deploySubpath": ""
+}

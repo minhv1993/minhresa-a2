@@ -24,7 +24,7 @@
 }
 
 .announce-name {
-    font-size: 4rem;
+    font-size: 5rem;
     line-height: 3.5rem;
     font-family: $grand-hotel-font;
     @include flexbox();
@@ -39,21 +39,21 @@
     }
 
     .and {
-        margin-top: -1rem;
-        margin-bottom: -1.8rem;
+        margin-top: -.5rem;
+        margin-bottom: -1.5rem;
     }
 
 }
 
 .announce-sub-text {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
     line-height: 1.5;
 }
 
 .save-the-date {
     color: $eggplant;
     line-height: 1.5;
-    font-size: 1.25rem;
+    font-size: 1.75rem;
 
     div{
         display: inline-block;
@@ -62,7 +62,7 @@
 
 .lnk-story {
     width: 100%;
-    font-size: 2.5rem;
+    font-size: 3rem;
     position: relative;
     font-family: $grand-hotel-font;
     color: $white-antique;
@@ -151,49 +151,41 @@ $tl-color: $blue-dusty-dark;
     min-height: 100vh;
 }
 .tl-section-content {
-    padding: 2rem 3rem 1rem 1rem;
+    padding: 2rem 3.5rem 1rem 1rem;
     width: 100%;
     font-size: 1.125rem;
 
     h1, h2, h3 {
         font-family: $grand-hotel-font;
-        margin: 0;
+        margin: 0 0 0.5rem;
     }
     p {
         font-family: $overlock-font;
+        line-height: 1.375rem;
         div {
             font-family: inherit;
             font-size: inherit;
         }
     }
+
+    .convo {
+        margin-left: 1rem;
+        font-size: 1rem;
+        line-height: 1.25rem;
+    }
 }
 
 .stairs, .seed, .talk, .journey, .proposal, .altar {
-    h2 {
+    h1, h2, h3 {
         text-align: center;
-    }
-    p{
-        font-size: 1.2rem;
-    }
-}
-
-.talk {
-    p{
-        font-size: 1.1rem;
-    }
-}
-
-.journey {
-    p {
-        font-size: 1rem;
     }
 }
 
 // TIMELINE NAV
 .tl-nav-wrapper {
+    opacity: 0;
     position: fixed;
     bottom: 0;
-    top: 0; // TODO: remove for dynamic scroll
     right: 0;
     max-height: 100vh;
     z-index: 1;
@@ -225,34 +217,30 @@ $tl-nav-padding: 1em;
     span {
         @include transition(all 0.3s ease-in-out);
     }
+    &:hover,
+    &.alt:hover,
+    &.alt.active {
+        .tl-nav-icon {
+            color: $blue-dusty-dark;
+            border-color: $blue-dusty-dark;
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.5625rem;
+            padding: 0.125rem 0 0 0.125rem;
+        }
+    }
     
-    &:hover, 
     &.active {
         .tl-nav-icon {
             color: $eggplant;
             border-color: $eggplant;
-            width: 2.5rem;
-            height: 2.5rem;
-            font-size: 1.75rem;
-            padding: 0.1rem 0 0 0.4rem;
+            width: 3.125rem;
+            height: 3.125rem;
+            font-size: 2.1875rem;
+            padding: 0.125rem 0 0 0.5rem;
         }
     }
 
-    &.alt {
-        .tl-nav-icon{
-            padding: 0.15rem 0 0 0.1rem;
-
-            &:hover,
-            &.active {
-                color: $blue-dusty-dark;
-                border-color: $blue-dusty-dark;
-                width: 2rem;
-                height: 2rem;
-                font-size: 1.25rem;
-                padding: 0.1rem 0 0 0.1rem;
-            }
-        }
-    }
 
     &:focus {
         background-color: transparent;
@@ -260,16 +248,16 @@ $tl-nav-padding: 1em;
 }
 
 .tl-nav-icon {
-    font-size: 1.25rem;
+    font-size: 1.5625rem;
     background: white;
-    border: 0.1rem solid $blue-dusty-dark;
+    border: 0.125rem solid $blue-dusty-dark;
     color: $blue-dusty-dark;
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
     text-align: center;
-    padding: 0.1rem 0 0 0.1rem;
+    padding: 0.125rem 0 0 0.125rem;
     border-right: 0;
 }
 

@@ -54,20 +54,24 @@
         top: 0.5rem;
         color: white;
         position: fixed;
-        font-size: 1.5rem;
+        font-size: 2rem;
         @include transition(.25s all ease-in-out);
 
         i {
             transform: translate(-100%, 0);
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 3rem;
+            height: 3rem;
             background: $eggplant;
             border-top-right-radius: 100%;
             border-bottom-right-radius: 100%;
-            padding: .5rem;
+            padding: 0.5rem 0.875rem;
             position: absolute;
             top: 0;
             @include transition(transform .25s ease-in-out);
+
+            &:before {
+                float: right;
+            }
         }
 
         .show {
@@ -82,7 +86,7 @@
     .nav-menu {
         padding: 4rem 5rem 4rem 1rem;
         height: 100%;
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         @include flex-dir(column);
     }
 
@@ -93,7 +97,7 @@
     .nav-item {
         text-shadow: 0 0 0.3125rem $blue-dusty-dark;
         display: block;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .nav-link {
