@@ -1,30 +1,30 @@
-<nav class="nav-bar container" role="navigation" id="nav-bar" [class.active]="menuShow">
+<nav class="nav-bar" role="navigation" id="nav-bar" [class.active]="menuShow">
     <a class="visible-xs-inline-block menu-toggle" id="menu-toggle" (click)="toggleMenu()">
         <i class="fa fa-bars" [class.show]="!menuShow"></i>
         <i class="fa fa-times" [class.show]="menuShow"></i>
     </a>
     <div class="nav-menu" id="nav-menu">
         <div class="nav-item visible-xs">
-            <a class="nav-link" routerLink="/home" routerLinkActive="active">
+            <a class="nav-link" routerLink="/home" routerLinkActive="active" (click)="toggleMenu()">
                 <span class="nav-icon"><i class="fa fa-home"></i></span>
                 <span>HOME</span>
             </a>
         </div>
         <div class="nav-menu-group left">
             <div class="nav-item">
-                <a class="nav-link" routerLink="/schedule" routerLinkActive="active">
+                <a class="nav-link" routerLink="/schedule" routerLinkActive="active" (click)="toggleMenu()">
                     <span class="nav-icon"><i class="fa fa-clock"></i></span>
                     <span>SCHEDULE</span>
                 </a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" routerLink="/gallery" routerLinkActive="active">
+                <a class="nav-link" routerLink="/gallery" routerLinkActive="active" (click)="toggleMenu()">
                     <span class="nav-icon"><i class="fa fa-images"></i></span>
                     <span>Gallery</span>
                 </a>
             </div>
             <div class="nav-item" >
-                <a class="nav-link" routerLink="/registry" routerLinkActive="active">
+                <a class="nav-link" routerLink="/registry" routerLinkActive="active" (click)="toggleMenu()">
                     <span class="nav-icon"><i class="fa fa-gift"></i></span>
                     <span>REGISTRY</span>
                 </a>
@@ -33,19 +33,19 @@
         <a class="nav-item nav-logo hidden-xs" routerLink="/">T+M</a>
         <div class="nav-menu-group right">
             <div class="nav-item">
-                <a class="nav-link" routerLink="/wedding-party" routerLinkActive="active">
+                <a class="nav-link" routerLink="/wedding-party" routerLinkActive="active" (click)="toggleMenu()">
                     <span class="nav-icon"><i class="fa fa-male"></i><i class="fa fa-female"></i></span>
                     <span>WEDDING PARTY</span>
                 </a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" routerLink="/travel" routerLinkActive="active">
+                <a class="nav-link" routerLink="/travel" routerLinkActive="active" (click)="toggleMenu()">
                     <span class="nav-icon"><i class="fa fa-plane"></i></span>
                     <span>TRAVEL</span>
                 </a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" routerLink="/rsvp" routerLinkActive="active">
+                <a class="nav-link" routerLink="/rsvp" routerLinkActive="active" (click)="toggleMenu()">
                     <span class="nav-icon"><i class="fa fa-user-check"></i></span>
                     <span>R.S.V.P.</span>
                 </a>

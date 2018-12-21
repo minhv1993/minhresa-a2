@@ -1,6 +1,4 @@
 import { Component, HostListener, AfterViewInit, ViewChild, ViewChildren, ElementRef, QueryList } from '@angular/core';
-import { Router, NavigationEnd, NavigationExtras } from '@angular/router';
-import { fn } from '@angular/compiler/src/output/output_ast';
 
 @Component({
     selector: 'home',

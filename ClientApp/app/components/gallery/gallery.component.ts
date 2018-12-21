@@ -25,8 +25,7 @@ export class GalleryComponent {
         <GalleryItem> { src: '../img/gallery (13).jpg' },
         <GalleryItem> { src: '../img/gallery (14).jpg' },
         <GalleryItem> { src: '../img/gallery (15).jpg' },
-        <GalleryItem> { src: '../img/gallery (16).jpg' },
-        <GalleryItem> { src: '../img/gallery (17).jpg' },
+        <GalleryItem> { src: '../img/gallery (16).jpg' }
     ];
 
     galleryOptions: NgxMasonryOptions = {

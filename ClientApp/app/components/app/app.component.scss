@@ -51,7 +51,7 @@ a, .btn, button, .lnk{
     text-shadow: 0 0 0.25rem white;
     cursor: pointer;
     
-    &:hover {
+    &:hover, &:focus, &.focus {
         color: white;
         text-shadow: 0 0 0.25rem $blue-dusty-dark;
     }
@@ -62,7 +62,7 @@ a, .btn, button, .lnk{
     text-shadow: 0 0 0.25rem $blue-dusty-dark;
     cursor: pointer;
     
-    &:hover {
+    &:hover, &:focus, &.focus {
         color: $blue-dusty-dark;
         text-shadow: 0 0 0.25rem white;
     }
@@ -84,7 +84,7 @@ a, .btn, button, .lnk{
     @include justify-content(center);
     @include align-items(center);
 
-    &:hover {
+    &:hover, &:focus, &.focus {
         box-shadow: 0 0 0.25rem $blue-dusty-dark;
     }
 
@@ -97,7 +97,7 @@ a, .btn, button, .lnk{
     color: white;
     background: $blue-dusty-dark;
 
-    &:hover {
+    &:hover, &:focus, &.focus {
         color: $blue-dusty-dark;
         background: white;
     }
@@ -111,7 +111,7 @@ a, .btn, button, .lnk{
     color: $blue-dusty-dark;
     background: white;
 
-    &:hover {
+    &:hover, &:focus, &.focus {
         color: white;
         background: $blue-dusty-dark;
     }
@@ -123,14 +123,14 @@ a, .btn, button, .lnk{
 }
 
 .btn-icon {
-    width: 43px;
-    height: 43px;
+    width: 2.75rem;
+    height: 2.75rem;
     font-size: 26px;
     background: white;
     color: $blue-dusty-dark;
     padding: 0;
 
-    &:hover {
+    &:hover, &:focus, &.focus {
         background: $blue-dusty-dark;
         color: white;
     }
@@ -148,12 +148,57 @@ a, .btn, button, .lnk{
 .txt-just {
     text-align: justify;
 }
+.tooltip-wrapper {
+    position: relative;
+
+    .tooltip-txt {
+        display: none;
+        position: absolute;
+        background: white;
+        color: $eggplant;
+        font-size: 1rem;
+        z-index: 1;
+        top: -40px;
+        padding: 5px 10px;
+        border-radius: 3px;
+        border: 2px solid $eggplant;
+        box-shadow: 0 3px 12px rgba(0,0,0,.66);
+    }
+
+    &:hover {
+        .tooltip-txt {
+            display: block;
+        }
+    }
+    
+    &.top-left {
+        .tooltip-txt {
+            left: 0;
+        }
+    }
+
+    &.top-right {
+        .tooltip-txt {
+            right: 0;
+        }
+    } 
+}
+
+
+.container {
+    position: relative;
+    z-index: 1;
+
+    @media (min-width: $min-width-md){
+        max-width: 1024px;
+    }
+}
 .hero {
     background: gray no-repeat center;
     background-size:cover;
     position:relative;
     width: 100%;
-    height: 80vh;
+    height: 60vh;
     font-size: 2rem;
     text-align: center;
     color: white;
@@ -161,7 +206,7 @@ a, .btn, button, .lnk{
     &:after {
         content: "";
         display: inline-block;
-        height: 100%;
+        height: 70%;
         width: 100%;
         background: linear-gradient(to top, white, rgba(255,255,255,0));
         position: absolute;
@@ -172,13 +217,16 @@ a, .btn, button, .lnk{
 
     &.fullscreen {
         height: 100vh;
-        &:after {
-            height: 8rem;
-        }
     }
 
     &.overlap {
-        margin-bottom: -8rem;
+        margin-bottom: -6rem;
+    }
+
+    @media (min-width: $min-width-sm){
+        &.condensed {
+            padding: 6rem 0;
+        }
     }
 }
 
@@ -208,14 +256,6 @@ a, .btn, button, .lnk{
     }
 }
 
-@media (min-width: 768px){
-    .hero {
-        &.condensed {
-            padding: 6rem 0;
-        }
-    }
-
-    .text-content {
-        padding: 0 4rem;
-    }
+.text-content {
+    font-size: 1.5rem;
 }

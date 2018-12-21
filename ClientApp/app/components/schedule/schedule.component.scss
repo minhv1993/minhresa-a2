@@ -1,1 +1,175 @@
-// component css goes here
+@import '../../shared/styles/variables.scss';
+@import '../../shared/styles/mixins.scss';
+
+#hero-schedule {
+    background-image: url(../img/hero-schedule.jpg);
+}
+
+.thank-you-note {
+    margin-bottom: 6rem;
+}
+
+.event {
+    @include flexbox();
+
+    margin-bottom: 6rem;
+
+    h1, h2, h3, h4, h5, p {
+        margin: .5rem 0;
+    }
+
+    p {
+        font-size: 1.25rem;
+        margin-top: 1.5rem;
+    }
+
+    @media (max-width: $max-width-xs){
+        @include flex-dir(column);
+    }
+
+    @media (min-width: $min-width-sm){
+        @include flex-dir(row);
+        @include justify-content(space-between);
+    }
+}
+
+.event-name {
+    color: $blue-dusty-dark;
+    font-family: $grand-hotel-font;
+    font-weight: normal;
+    font-size: 4rem;
+}
+
+.event-divider {
+    border: 0.0625rem solid $eggplant;
+    position: relative;
+    margin: 2rem 0;
+    background: $eggplant;
+
+    i{
+        position: absolute;
+        font-size: 36px;
+        background: white;
+        border: 0.125rem solid $eggplant;
+        border-radius: 3rem;
+        color: $eggplant;
+        padding: 0.625rem;
+        top: -1.875rem;
+        left: calc(50% - 1.875rem);
+    }
+
+    @media (min-width: $min-width-sm){
+        margin: 0 2rem;
+
+        i {
+            left: -1.875rem;
+            top: calc(50% - 1.875rem);
+        }
+    }
+}
+
+.btn-container {
+    @include flex-dir(column);
+    width: 100%;
+}
+
+.btn-direction {
+    margin-bottom: 1rem;
+    width: 100%;
+
+    i {
+        margin-left: 0.3125rem;
+    }
+}
+
+.add-to-cal-wrapper {
+    @include flexbox();
+    @include justify-content(space-between);
+    width: 100%;
+}
+
+.btn-add-to-cal {
+    width: 100%;
+    @include transition(width .5s ease-in);
+    @include flex(0 0 auto);
+
+    .plus-x {
+        margin-right: 0.625rem;
+        @include transition(transform .5s ease-in, font-size .5s ease-in, margin-right .5s ease-in);
+        @include transform(rotate(45deg));
+    }
+
+    .text {
+        display: inline-block;
+        overflow: hidden;
+        max-height: 50px;
+        max-width: 300px;
+        @include transition(max-width .5s ease-in, max-height .5s ease-in);
+    }
+
+    &.add-mode {
+        width: 2.75rem;
+        height: 2.75rem;
+
+        .plus-x {
+            @include transform(rotate(0deg));
+            margin-right: 0;
+            font-size: 1.8125rem;
+        }
+        .text {
+            max-height: 0;
+            max-width: 0;
+        }
+    }
+}
+
+.tooltip-txt {
+    width: 170px;
+}
+
+@media (min-width: $min-width-sm){
+    .event-header, .event-info {
+        width: calc(50% - 4rem - 2px);
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(center);
+        @include flex-dir(column);
+    }
+
+    .event-info {
+
+        h3, h5 {
+            margin: 0 0 .25rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+    }
+
+    .btn-container {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: $min-width-md){
+    .event-info {
+        p {
+            font-size: 1.25rem;
+        }
+    }
+
+    .btn-container {
+        font-size: 1.5rem;
+        @include flex-dir(row);
+    }
+
+    .btn-direction {
+        width: 146px;
+        margin-bottom: 0;
+    }
+
+    .add-to-cal-wrapper {
+        width: 266px;
+    }
+}

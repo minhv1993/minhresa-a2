@@ -6,10 +6,6 @@ $header-height: 6rem;
 #hero-home {
     background-image: url(../img/hero-home.jpg);
 
-    &:after {
-        height: 100vh;
-    }
-
     .hero-body {
         padding: $header-height 3rem 1rem;
         @include flexbox();
@@ -44,6 +40,7 @@ $header-height: 6rem;
         color: $eggplant;
         line-height: 1.5;
         font-size: 1.75rem;
+        text-shadow: 0 0 0.125rem $white-antique;
     
         div{
             display: inline-block;

@@ -1,1 +1,43 @@
-// component css goes here
+@import '../../shared/styles/variables.scss';
+@import '../../shared/styles/mixins.scss';
+
+#hero-wp {
+    background-image: url('../img/hero-wp.jpg');
+}
+
+.wp-wrapper {
+    @include flexbox();
+    @include flex-wrap(wrap);
+    margin: 0 -20px;
+}
+
+.wp-peep {
+    width: 50%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+.wp-pic {
+    width: 100%;
+    padding: 50% 0;
+    background: transparent no-repeat center;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 0px 0px 9px rgba(0,0,0,.66);
+    display: inline-block;
+    @include transition(max-width .25s ease-in-out, max-height .25s ease-in-out);
+}
+
+.wp-bio {
+    display: none;
+}
+
+.christine {
+    background-image:  url('../img/christine-bw.png'), url('../img/christine.jpg');
+    background-position: top;
+    @include transition(background-image 0.25s ease-in-out);
+
+    &:hover {
+        background-image: url('../img/christine.jpg');
+    }
+}

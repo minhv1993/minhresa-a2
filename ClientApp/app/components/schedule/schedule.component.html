@@ -1,1 +1,83 @@
-<!--component html goes here -->
+<!-- Hero -->
+<section id="hero-schedule" class="hero condensed overlap">
+    <div class="hero-body container flex center">
+        <h1 class="page-title">Schedule</h1>
+    </div>
+</section>
+<!-- Events -->
+<section class="container page-content text-content txt-center thank-you-note">
+    <p class="txt-just">
+        We would like to extend our deepest gratitude and appreciation to both of our families who loved us first and taught us to love. We would also like to thank our mentors and friends who have made an impact on our lives in one way or another. We cannot wait to share our special day with you all!
+    </p>
+    <p class="txt-just">
+            Below are the time and location of the events of our wedding. Please add them to your calendar. We would love to see you there.
+    </p>
+    <p>
+        Love, <br/>
+        Minh & Theresa
+    </p>
+</section>
+<section class="container page-content event-content txt-center">
+    <ng-container 
+        *ngFor="let event of events; let i=index"
+        [ngTemplateOutlet]="eventItem" 
+        [ngTemplateOutletContext]="{$implicit: event, index: i}">
+    </ng-container>
+</section>
+
+<ng-template #eventItem let-event let-i="index">
+    <div class="event">
+        <div class="event-header">
+            <h1 class="event-name">{{ event.name }}</h1>
+            <h3>{{ event.date | date:'longDate' }}</h3>
+            <h4>{{ event.time }}</h4>
+        </div>
+        <div class="event-divider">
+            <i [class]="event.icon"></i>
+        </div>
+        <div class="event-info">
+            <h3>{{ event.addressTitle }}</h3>
+            <h4>{{ event.addressLine1 }}</h4>
+            <h4>{{ event.addressLine2 }}</h4>
+            <p class="txt-center" *ngIf="event.note" [innerHtml]="event.note"></p>
+            <p class="txt-just" [innerHtml]="event.description"></p>
+            <div class="btn-container">
+                <a class="btn btn-secondary btn-direction" [href]="event.mapUrl" target="_blank">
+                    Direction <i class="fa fa-directions"></i>
+                </a>
+                <div class="add-to-cal-wrapper">
+                    <span class="btn btn-secondary btn-add-to-cal"
+                        [class.add-mode]="calAddMode[i]"
+                        (click)="toggleCalButton(i)">
+                        <i class="fa fa-times plus-x"></i>
+                        <span class="text">Add To Calendar <i class="fa fa-calendar-alt"></i> </span>
+                    </span>
+                    <a class="btn btn-icon tooltip-wrapper cal-type"
+                        [class.hidden]="calHiddenMode[i]" 
+                        (click)="addToCal(eventCalType.iCal, event)">
+                        <i class="fab fa-apple"></i>
+                        <span class="tooltip-txt">Add to Apple iCal</span>
+                    </a>
+                    <a class="btn btn-icon tooltip-wrapper cal-type"
+                        [class.hidden]="calHiddenMode[i]"
+                        (click)="addToCal(eventCalType.Google, event)">
+                        <i class="fab fa-google"></i>
+                        <span class="tooltip-txt">Add to Google Calendar</span>
+                    </a>
+                    <a class="btn btn-icon tooltip-wrapper cal-type"
+                        [class.hidden]="calHiddenMode[i]"
+                        (click)="addToCal(eventCalType.Yahoo, event)">
+                        <i class="fab fa-yahoo"></i>
+                        <span class="tooltip-txt">Add to Yahoo Calendar</span>
+                    </a>
+                    <a class="btn btn-icon tooltip-wrapper top-right cal-type"
+                        [class.hidden]="calHiddenMode[i]"
+                        (click)="addToCal(eventCalType.Outlook, event)">
+                        <i class="fa fa-envelope"></i>
+                        <span class="tooltip-txt">Add to Outlook</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
