@@ -12,6 +12,18 @@ body, html {
     @media (min-width: $min-width-lg){
         font-size: 18px;
     }
+
+    @media (min-width: $min-width-hd){
+        font-size: 20px;
+    }
+
+    @media (min-width: $min-width-3k){
+        font-size: 22px;
+    }
+
+    @media (min-width: $min-width-4k){
+        font-size: 24px;
+    }
 }
 
 .bold {
@@ -190,7 +202,7 @@ a, .btn, button, .lnk{
     z-index: 1;
 
     @media (min-width: $min-width-md){
-        max-width: 1024px;
+        max-width: 64rem;
     }
 }
 .hero {
@@ -198,7 +210,7 @@ a, .btn, button, .lnk{
     background-size:cover;
     position:relative;
     width: 100%;
-    height: 60vh;
+    height: 80vh;
     font-size: 2rem;
     text-align: center;
     color: white;
@@ -206,7 +218,7 @@ a, .btn, button, .lnk{
     &:after {
         content: "";
         display: inline-block;
-        height: 70%;
+        height: 80%;
         width: 100%;
         background: linear-gradient(to top, white, rgba(255,255,255,0));
         position: absolute;
@@ -224,6 +236,8 @@ a, .btn, button, .lnk{
     }
 
     @media (min-width: $min-width-sm){
+        height: 60%;
+
         &.condensed {
             padding: 6rem 0;
         }

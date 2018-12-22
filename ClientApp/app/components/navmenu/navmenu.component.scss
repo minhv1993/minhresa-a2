@@ -131,7 +131,7 @@
         padding: 0;
         width: 100%;
         position: static;
-        max-width: 1024px;
+        max-width: 64rem;
         @include justify-content(space-between);
         @include align-items(center);
     }

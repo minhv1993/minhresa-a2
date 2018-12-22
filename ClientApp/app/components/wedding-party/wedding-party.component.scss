@@ -8,16 +8,108 @@
 .wp-wrapper {
     @include flexbox();
     @include flex-wrap(wrap);
-    margin: 0 -20px;
+    @include justify-content(space-between);
+}
+.wp-pair {
+    width: 100%;
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include justify-content(space-between);
 }
 
-.wp-peep {
-    width: 50%;
-    padding: 0 10px;
-    margin-bottom: 20px;
+.groomsmen, 
+.bridemaids {
+    width: calc(50% - .5rem);
 }
 
-.wp-pic {
+.person {
+    margin-bottom: 2rem;
+    position: relative;
+
+    &.bm {
+        color: $eggplant;
+    }
+
+    &.gm {
+        color: $blue-dusty-dark;
+    }
+}
+
+.name {
+    .title {
+        color: $charcoal;
+    }
+}
+
+@media (max-width: $max-width-xs){
+    .bio {
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        position: fixed;
+        font-weight: bold;
+        font-size: 1.25rem;
+        display: inline-block;
+        overflow: hidden;
+        @include transition(opacity 0.5s ease-in-out);
+    
+        &.active {
+            opacity: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    
+        .bio-bg {
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            pointer-events: none;
+        }
+    
+        .bio-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 4rem 1rem 1rem;
+            background: rgba(255,255,255,0.5);
+        }
+    
+        .bio-text {
+            color: $charcoal;
+            overflow-y: scroll;
+            height: calc(100% - 7.1875rem);
+        }
+    
+        .bio-close {
+            position: absolute;
+            top: .5rem;
+            right: .5rem;
+        }
+    
+        .title {
+            font-weight: bold;
+        }
+    }    
+}
+@mixin pic-state($url1, $url2, $pos) {
+    background-image:  url($url1), url($url2);
+    background-position: $pos;
+    @include transition(background-image 0.25s ease-in);
+
+    &:hover,
+    &.active {
+        background-image: url($url2);
+    }
+}
+
+.pic {
     width: 100%;
     padding: 50% 0;
     background: transparent no-repeat center;
@@ -26,18 +118,60 @@
     box-shadow: 0px 0px 9px rgba(0,0,0,.66);
     display: inline-block;
     @include transition(max-width .25s ease-in-out, max-height .25s ease-in-out);
-}
 
-.wp-bio {
-    display: none;
-}
+    &.james {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
+    }
 
-.christine {
-    background-image:  url('../img/christine-bw.png'), url('../img/christine.jpg');
-    background-position: top;
-    @include transition(background-image 0.25s ease-in-out);
+    &.chris {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
+    }
 
-    &:hover {
-        background-image: url('../img/christine.jpg');
+    &.jason {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
+    }
+
+    &.alex {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
+    }
+
+    &.brandon {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
+    }
+
+    &.andrew {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
+    }
+
+    &.joseph {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
+    }
+
+    &.karen {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
+    }
+
+    &.van-anh {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
+    }
+
+    &.thy {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
+    }
+
+    &.angela {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
+    }
+
+    &.linh {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
+    }
+
+    &.tessie {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
+    }
+
+    &.christine {
+        @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);
     }
 }
