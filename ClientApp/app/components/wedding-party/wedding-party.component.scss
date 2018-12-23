@@ -5,6 +5,10 @@
     background-image: url('../img/hero-wp.jpg');
 }
 
+h1, h2, h3, h4, h5 {
+    margin: 0.625rem 0;
+}
+
 .wp-wrapper {
     @include flexbox();
     @include flex-wrap(wrap);
@@ -35,7 +39,33 @@
     }
 }
 
-.name {
+.btn-icon{
+    &.bm {
+        color: $eggplant;
+        border-color: $eggplant;
+
+        &:hover, &:focus, &.focus {
+            color: white;
+            background: $eggplant;
+        }
+    }
+
+    &.gm {
+        color: $blue-dusty-dark;
+        border-color: $blue-dusty-dark;
+
+        &:hover, &:focus, &.focus {
+            color: white;
+            background: $blue-dusty-dark;
+        }
+    }
+}
+
+.name-wrapper {
+    .name {
+        margin: 0.625rem 0;
+    }
+
     .title {
         color: $charcoal;
     }
@@ -43,69 +73,77 @@
 
 @media (max-width: $max-width-xs){
     .bio {
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        opacity: 0;
+        top: 100vh;
+        left: 0%;
+        width: 100%;
+        height: 100vh;
         position: fixed;
         font-weight: bold;
         font-size: 1.25rem;
         display: inline-block;
         overflow: hidden;
-        @include transition(opacity 0.5s ease-in-out);
+        padding: 1rem;
+        z-index: 1;
+        background: rgba(0,0,0,0.5);
+        @include transition(top 0.5s ease-in-out);
     
         &.active {
-            opacity: 1;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
         }
     
         .bio-bg {
             width: 100%;
             height: 100%;
-            border-radius: 0;
+            border-radius: 4px;
             pointer-events: none;
         }
     
         .bio-content {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 4rem 1rem 1rem;
+            top: 1rem;
+            left: 1rem;
+            right: 1rem;
+            bottom: 1rem;
+            padding: 1rem;
             background: rgba(255,255,255,0.5);
+            text-shadow: 0 0 0.25rem $white-antique;
+            border-radius: 4px;
         }
     
         .bio-text {
             color: $charcoal;
             overflow-y: scroll;
-            height: calc(100% - 7.1875rem);
+            height: calc(100% - 5.9375rem);
+            margin: 0;
         }
     
         .bio-close {
             position: absolute;
-            top: .5rem;
-            right: .5rem;
+            top: -.5rem;
+            right: -.5rem;
         }
-    
+
         .title {
             font-weight: bold;
         }
-    }    
+    }
 }
+
+@media (min-width: $min-width-sm) {
+    .bio-close {
+        display: none;
+    }
+
+}
+
 @mixin pic-state($url1, $url2, $pos) {
-    background-image:  url($url1), url($url2);
+    background-image:  url($url2);
     background-position: $pos;
     @include transition(background-image 0.25s ease-in);
 
     &:hover,
     &.active {
-        background-image: url($url2);
+        background-image: url($url1);
     }
 }
 
@@ -117,7 +155,14 @@
     border-radius: 50%;
     box-shadow: 0px 0px 9px rgba(0,0,0,.66);
     display: inline-block;
+    position: relative;
     @include transition(max-width .25s ease-in-out, max-height .25s ease-in-out);
+    
+    .bio-toggle {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
 
     &.james {
         @include pic-state('../img/christine-bw.jpg', '../img/christine.jpg', top);

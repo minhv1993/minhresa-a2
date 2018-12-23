@@ -35,19 +35,23 @@
 
 <ng-template #bioItem let-bio let-id="id" let-active="active">
     <div class="person" [ngClass]="bio.class" [class.active]="bioActive[id]">
-        <div class="pic" [ngClass]="bio.imageClass" (click)="toggleBio(id)"></div>
+        <div class="pic" [ngClass]="bio.imageClass" (click)="toggleBio(id)">
+            <a class="btn btn-icon bio-toggle" [ngClass]="bio.class">
+                <i class="fa fa-plus"></i>
+            </a>
+        </div>
         <div class="name txt-center">
-            <h3 class="visible-xs"><strong>{{ bio.name }}</strong></h3>
+            <h3 class="name visible-xs"><strong>{{ bio.name }}</strong></h3>
             <h4 class="title visible-xs">{{ bio.title }}</h4>
         </div>
         <div class="bio" [class.active]="bioActive[id]">
             <div class="pic bio-bg visible-xs" [ngClass]="bio.imageClass" [class.active]="bioActive[id]"></div>
             <div class="bio-content">
-                <a class="btn btn-icon bio-close visible-xs" (click)="toggleBio(id)" [ngClass]="bio.class">
+                <a class="btn btn-icon bio-close" (click)="toggleBio(id)" [ngClass]="bio.class">
                     <i class="fa fa-times"></i>
                 </a>
-                <div class="name txt-center">
-                    <h1><strong>{{ bio.name }}</strong></h1>
+                <div class="name-wrapper txt-center">
+                    <h1 class="name"><strong>{{ bio.name }}</strong></h1>
                     <h3 class="title">{{ bio.title }}</h3>
                 </div>
                 <p class="bio-text txt-just" [innerHtml]="bio.text"></p>

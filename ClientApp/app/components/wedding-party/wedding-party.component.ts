@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Bio } from './Models';
 
 @Component({
@@ -6,7 +6,7 @@ import { Bio } from './Models';
     templateUrl: 'wedding-party.component.html',
     styleUrls: ['wedding-party.component.scss']
 })
-export class WeddingPartyComponent {
+export class WeddingPartyComponent implements OnDestroy {
     groomsmen: Bio[] = [
         <Bio>{
             name: 'James Tran',
@@ -150,5 +150,14 @@ export class WeddingPartyComponent {
         const val = this.bioActive[id];
         this.bioActive = this.bioActive.map(() => { return false; });
         this.bioActive[id] = !val;
+        if(!val){
+            document.body.style.overflow = 'hidden';
+        }else{
+            document.body.style.overflow = null;
+        }
+    }
+
+    ngOnDestroy(): void {
+        document.body.style.overflow = null;
     }
 }
