@@ -2,6 +2,23 @@
 @import '../../shared/styles/mixins.scss';
 
 $header-height: 6rem;
+
+
+.btn-container {
+    @media (max-width: $max-width-xs){
+        width: 100%;
+    }
+
+    @media (min-width: $min-width-sm){
+        width: 21rem;
+        margin: 0 auto;
+
+        .btn {
+            font-size: 1.5rem;
+        }
+    }
+    
+}
 // HERO
 #hero-home {
     background-image: url(../img/hero-home.jpg);
@@ -11,6 +28,10 @@ $header-height: 6rem;
         @include flexbox();
         @include flex-dir(column);
         @include justify-content(space-between);
+
+        @media (max-height: $max-width-xs){
+            padding-bottom: 3rem;
+        }
     }
     .announce {
         text-shadow: 0 0 0.2rem $blue-dusty-dark;
@@ -117,21 +138,26 @@ $tl-color: $blue-dusty-dark;
     margin: auto;
 
     // TIMELINE SECTION
-    .tl-section-container {
+    .story-container {
         color: #3f3f3f;
-        @include flexbox();
-        @include align-items(center);
-        @include justify-content(center);
-        background: white;
-        min-height: 100vh;
+        background: white no-repeat center;
+        background-size: cover;
     }
 
-    .tl-section-content {
+    .story-content {
         width: 100%;
         font-size: 1.125rem;
+        min-height: 100vh;
+        background: radial-gradient(closest-side, rgba(255, 255, 255, 0.5), white);
+        @include flexbox();
+        @include align-items(flex-start);
+        @include justify-content(center);
+        @include flex-dir(column);
     
         h1, h2, h3 {
             font-family: $grand-hotel-font;
+            margin: 0 auto 1rem;
+            width: 100%;
         }
 
         p {
@@ -150,9 +176,6 @@ $tl-color: $blue-dusty-dark;
         @media (max-width: $max-width-xs){
             padding: 2rem 3.5rem 1rem 1rem;
 
-            h1, h2, h3 {
-                margin: 0 0 0.5rem;
-            }
             p {
                 line-height: 1.25rem;
             }
@@ -168,7 +191,10 @@ $tl-color: $blue-dusty-dark;
             
             h1, h2, h3 {
                 width: 26rem;
-                margin: 0 auto .5rem;
+            }
+
+            h1 {
+                font-size: 3rem;
             }
 
             .convo {
@@ -183,16 +209,9 @@ $tl-color: $blue-dusty-dark;
             text-align: center;
         }
     }
-}
 
-@media (min-width: $min-width-sm){
-
-    .btn-container {
-        width: 21rem;
-        margin: auto;
-    }
-    .btn {
-        font-size: 1.5rem;
+    .altar {
+        background-image:  url(../img/story-altar.jpg);
     }
 }
 

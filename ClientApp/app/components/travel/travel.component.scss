@@ -1,5 +1,12 @@
+@import '../../shared/styles/variables.scss';
+@import '../../shared/styles/mixins.scss';
+
 #hero-travel {
     background-image: url(../img/hero-travel.jpg);
+    
+    @media(min-width: $min-width-sm){
+        background-position-y: 60%;
+    }
 }
 
 .map-container {

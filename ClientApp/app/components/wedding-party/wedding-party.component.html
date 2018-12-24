@@ -40,17 +40,17 @@
                 <i class="fa fa-plus"></i>
             </a>
         </div>
-        <div class="name txt-center">
-            <h3 class="name visible-xs"><strong>{{ bio.name }}</strong></h3>
-            <h4 class="title visible-xs">{{ bio.title }}</h4>
+        <div class="name-wrapper txt-center">
+            <h3 class="name"><strong>{{ bio.name }}</strong></h3>
+            <h4 class="title">{{ bio.title }}</h4>
         </div>
         <div class="bio" [class.active]="bioActive[id]">
-            <div class="pic bio-bg visible-xs" [ngClass]="bio.imageClass" [class.active]="bioActive[id]"></div>
+            <div class="pic bio-bg" [ngClass]="bio.imageClass" [class.active]="bioActive[id]"></div>
             <div class="bio-content">
                 <a class="btn btn-icon bio-close" (click)="toggleBio(id)" [ngClass]="bio.class">
                     <i class="fa fa-times"></i>
                 </a>
-                <div class="name-wrapper txt-center">
+                <div class="bio-name-wrapper txt-center">
                     <h1 class="name"><strong>{{ bio.name }}</strong></h1>
                     <h3 class="title">{{ bio.title }}</h3>
                 </div>

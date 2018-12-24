@@ -13,12 +13,27 @@ h1, h2, h3, h4, h5 {
     @include flexbox();
     @include flex-wrap(wrap);
     @include justify-content(space-between);
+
+    @media (min-width: $min-width-md) {
+        @include justify-content(center);
+    }
 }
 .wp-pair {
     width: 100%;
     @include flexbox();
     @include flex-wrap(wrap);
     @include justify-content(space-between);
+    @include transition(all .5s ease-in-out);
+    
+    @media (min-width: $min-width-md){
+        width: calc(50% - 1rem);
+    }
+
+    @media (min-width: $min-width-md) {
+        &:nth-child(2n) {
+            margin-left: 2rem;
+        }
+    }
 }
 
 .groomsmen, 
@@ -61,13 +76,34 @@ h1, h2, h3, h4, h5 {
     }
 }
 
-.name-wrapper {
+.bio-name-wrapper, .name-wrapper {
     .name {
         margin: 0.625rem 0;
     }
 
     .title {
         color: $charcoal;
+    }
+}
+
+.name-wrapper {
+    @media(min-width: $min-width-sm){
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255,255,255,0.7);
+        padding-bottom: 1rem;
+
+        .name {
+            font-size: 2rem;
+            margin: 0;
+        }
+    
+        .title {
+            font-size: 1.25rem;
+            margin-top: 0;
+        }
     }
 }
 
@@ -105,7 +141,7 @@ h1, h2, h3, h4, h5 {
             right: 1rem;
             bottom: 1rem;
             padding: 1rem;
-            background: rgba(255,255,255,0.5);
+            background: radial-gradient(closest-side, rgba(255, 255, 255, 0.1), white 150%);
             text-shadow: 0 0 0.25rem $white-antique;
             border-radius: 4px;
         }
@@ -130,10 +166,72 @@ h1, h2, h3, h4, h5 {
 }
 
 @media (min-width: $min-width-sm) {
-    .bio-close {
-        display: none;
-    }
+    $header-spacing: 7rem;
+    
+    .bio {
+        top: 100vh;
+        left: 0%;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        font-weight: bold;
+        font-size: 1.25rem;
+        display: inline-block;
+        overflow: hidden;
+        padding: $header-spacing 1rem 1rem;
+        z-index: 1;
+        background: rgba(0,0,0,0.5);
+        @include transition(top 0.5s ease-in-out);
+    
+        &.active {
+            top: 0;
+        }
+    
+        .bio-bg {
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            pointer-events: none;
+            max-width: 64rem;
+            width: 100%;
+        }
+    
+        .bio-content {
+            position: absolute;
+            top: $header-spacing;
+            left: 1rem;
+            right: 1rem;
+            bottom: 1rem;
+            padding: 1rem;
+            background: radial-gradient(closest-side, rgba(255, 255, 255, 0.1), white 125%);
+            text-shadow: 0 0 0.25rem $white-antique;
+            border-radius: 4px;
+            max-width: 64rem;
 
+            @media(min-width: $min-width-md){
+                left: 50%;
+                transform: translate(-50%, 0);
+                right: initial;
+                width: 100%;
+            }
+        }
+    
+        .bio-text {
+            color: $charcoal;
+            height: calc(100% - 5.9375rem);
+            margin: 0;
+        }
+    
+        .bio-close {
+            position: absolute;
+            top: -.5rem;
+            right: -.5rem;
+        }
+
+        .title {
+            font-weight: bold;
+        }
+    }
 }
 
 @mixin pic-state($url1, $url2, $pos) {
@@ -158,10 +256,23 @@ h1, h2, h3, h4, h5 {
     position: relative;
     @include transition(max-width .25s ease-in-out, max-height .25s ease-in-out);
     
+    $percent-45: 14.64466094067262%;
     .bio-toggle {
         position: absolute;
-        bottom: 0;
-        right: 0;
+        bottom: $percent-45;
+        right: $percent-45;
+        transform: translate(50%, 50%);
+
+        @media(min-width: $min-width-sm){
+            top: $percent-45;
+            bottom: initial;
+            right: $percent-45;
+            transform: translate(50%, -50%);
+        }
+    }
+
+    &.bio-bg {
+        padding: 0;
     }
 
     &.james {
