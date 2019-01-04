@@ -29,6 +29,8 @@ Obj/
 # Visual Studio 2015 cache/options directory
 .vs/
 # /wwwroot/dist/
+/wwwroot/dist/main-client.js
+/wwwroot/dist/main-client.js.map
 /ClientApp/dist/
 
 # MSTest test Results

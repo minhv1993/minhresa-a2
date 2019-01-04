@@ -15,6 +15,7 @@ import { RegistryComponent } from './components/registry/registry.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { TravelComponent } from './components/travel/travel.component';
 import { RsvpComponent } from './components/rsvp/rsvp.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { RsvpComponent } from './components/rsvp/rsvp.component';
         GalleryComponent,
         TravelComponent,
         RsvpComponent,
-        WeddingPartyComponent
+        WeddingPartyComponent,
+        FooterComponent
     ],
     imports: [
         CommonModule,
